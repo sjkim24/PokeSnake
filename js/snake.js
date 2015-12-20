@@ -67,8 +67,6 @@
 
   Snake.prototype.storeTurns = function(key) {
     this.turns.push(key);
-    //this.dir = "N"
-    //this.turns = [N, S, E, W, S]
   };
 
   Snake.prototype.grow = function (coord) {

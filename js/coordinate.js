@@ -23,6 +23,10 @@
     return (_.isEqual(newCoord.pos, this.pos));
   };
 
+  Coord.prototype.gameovertest = function () {
+    console.log("over")
+  };
+
 
 
   // [snakegame.coord.x, snakegame.coord.y] === [x,y]

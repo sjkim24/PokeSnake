@@ -5,15 +5,11 @@
   }
 
   var View = SnakeGame.View = function ($el) {
-
     this.$el = $el;
     this.gameover = true;
-
     this.board = new SnakeGame.Board($el);
     $(window).on("keydown", this.handleKeys.bind(this));
     document.getElementById("start-screen").showModal();
-
-
   };
 
   View.KEYS = {
@@ -47,42 +43,30 @@
 
   View.prototype.start = function () {
     this.gameover = false;
-    this.interval = window.setInterval(this.step.bind(this), 100);
+    this.interval = window.setInterval(this.step.bind(this), 150);
   };
 
   View.prototype.step = function() {
-    // store old segments of snake
-    // and then move
-    // and then store new segments of snake
-    // and then render passing old and new
     this.board.snake.turn();
-
-    var oldsegments = _.clone(this.board.snake.segments); //array of coordinates
+    var oldsegments = _.clone(this.board.snake.segments);
     this.board.snake.move();
     var newsegments = _.clone(this.board.snake.segments);
     if (this.checkApple(newsegments[0])) {
       this.board.snake.grow(oldsegments[oldsegments.length - 1]);
     }
-    newsegments = _.clone(this.board.snake.segments);
     this.render(oldsegments, newsegments);
+    this.selfEatCheck(newsegments);
+    this.outOfBoundCheck(newsegments);
   };
-
-  //after step, set new direction on snake
 
   View.prototype.render = function (oldsegments, newsegments) {
     var snakeX = newsegments[0].x;
     var snakeY = newsegments[0].y;
     $("#" + snakeX).children("." + snakeY).addClass("snake");
     this.renderApple();
-    //if snake didnt eat anything
     var removex = _.last(oldsegments).x;
     var removey = _.last(oldsegments).y;
     $("#" + removex).children("." + removey).removeClass("snake");
-
-    // if (this.board.snake.remove) {
-    //   var remvx = this.board.snake.remove.x;
-    //   var remvy = this.board.snake.remove.y;
-    // }
   };
 
   View.prototype.checkApple = function (coord) {
@@ -90,7 +74,6 @@
       this.board.generateApple();
       $(".apple").removeClass("apple");
       return true;
-      // this.board.snake.grow();
     }
   };
 
@@ -101,6 +84,23 @@
     $("#" + appleX).children("." + appleY).addClass("apple");
   };
 
+  View.prototype.selfEatCheck = function (segments) {
+    if (segments.length > 1) {
+      var head = segments[0];
+      var rest = segments.slice(1, segments.length);
+      for (var i = 0; i <= rest.length - 1; i++) {
+        if (head.equals(rest[i])) {
+          this.gameOver();
+        }
+      }
+    }
+  };
 
+  View.prototype.outOfBoundCheck = function (segments) {
+    var head = segments[0];
+    if ((head.x < 0 || head.x > 19) || (head.y < 0 || head.y > 19)) {
+      this.gameOver();
+    }
+  };
 
 })();
