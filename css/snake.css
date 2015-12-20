@@ -1,0 +1,35 @@
+html, head, body, h1, figure, li, ul {
+  margin: 0;
+  padding: 0;
+}
+
+figure{
+  height: 540px;
+  width: 540px;
+  border: 1px solid black;
+}
+
+/*.clearfix:after{
+  display: block;
+  content: "";
+  clear: both;
+}*/
+
+ul{
+}
+
+li{
+  float: left;
+  list-style: none;
+  height: 25px;
+  width: 25px;
+  border: 1px solid black;
+}
+
+li.snake{
+  background-color: green;
+}
+
+li.apple {
+  background-color: red;
+}
