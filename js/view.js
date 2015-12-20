@@ -53,7 +53,7 @@
   View.prototype.start = function () {
     this.gameover = true;
     this.paused = false;
-    this.interval = window.setInterval(this.step.bind(this), 125);
+
   };
 
   View.prototype.step = function() {
