@@ -34,10 +34,8 @@
   Board.prototype.generateApple = function () {
     var newAppleCoord;
     while (!newAppleCoord) {
-
       newAppleCoord = this.randomPair();
     }
-    // var segments = this.snake.segments;
     var apple = new SnakeGame.Apple(new SnakeGame.Coord(newAppleCoord));
     this.apple = apple;
   };

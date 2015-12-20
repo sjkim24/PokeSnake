@@ -6,19 +6,18 @@
 
   var Snake = SnakeGame.Snake = function () {
     this.dir = "N";
-    this.segments = [ new SnakeGame.Coord([4,5]) ];
-    this.head = this.segments[0]; //Coord
+    this.segments = [ new SnakeGame.Coord([8,5]) ];
+    this.head = this.segments[0];
     this.turns = [];
-    // this.tail = this.segments[this.segments.length - 1];
-    // this.remove = false;
-    //this.segments = head is here[Coord, Coord, Coord]
   };
 
   Snake.prototype.move = function () {
     switch (this.dir)
     {
       case "N":
+
         this.segments.unshift(new SnakeGame.Coord([this.head.x - 1, this.head.y]));
+
         break;
       case "S":
         this.segments.unshift(new SnakeGame.Coord([this.head.x + 1, this.head.y]));
@@ -32,19 +31,13 @@
     }
 
     this.head = this.segments[0];
-    // this.tail = this.segments[this.segments.length - 1];
-    //if no apple
-    // this.remove = this.segments[this.segments.length - 1];
-
     this.segments.pop();
   };
 
   Snake.prototype.turn = function () {
-    // direction = N S W E
     for (var i = this.turns.length - 1; i >= 0; i--) {
       if (this.isOpposite(this.turns[i]) === false) {
         this.dir = this.turns[i];
-        // this.head.dir = newDir;
       }
     }
     this.turns = [];
@@ -66,7 +59,9 @@
   };
 
   Snake.prototype.storeTurns = function(key) {
-    this.turns.push(key);
+    if (key !== "startgame") {
+        this.turns.push(key);
+    }
   };
 
   Snake.prototype.grow = function (coord) {
