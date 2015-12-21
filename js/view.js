@@ -8,7 +8,6 @@
     this.$el = $el;
     this.game = game;
     this.interval;
-    this.count = 0;
   };
 
   View.prototype.bindKeyHandlers = function () {
@@ -23,9 +22,10 @@
 
   View.prototype.startScreen = function () {
     this.bindKeyHandlers();
+    $("#score").html("Score: " + this.game.score);
+    $("#high-score").html("High Score: " + this.game.score);
     window.clearInterval(window.timer);
     window.timer = null;
-    document.getElementById("start-screen").showModal();
   };
 
   View.prototype.start = function () {
@@ -38,7 +38,6 @@
   };
 
   View.prototype.step = function() {
-    debugger
     this.game.snake.turn();
     var oldsegments = _.clone(this.game.snake.segments);
     this.game.snake.move();
@@ -52,8 +51,8 @@
       debugger
       this.gameOver();
     }
-    $(".score").html(this.game.score);
-    $(".high-score").html(this.game.score);
+    $("#score").html("Score: " + this.game.score);
+    $("#high-score").html("High Score: " + this.game.score);
   };
 
   View.prototype.render = function (oldsegments, newsegments) {
@@ -70,9 +69,9 @@
     if (coord.equals(this.game.apple.coord)) {
       this.game.generateApple();
       $(".apple").removeClass("apple");
-      this.score += 100;
-      if (this.score > this.highScore) {
-        this.highScore = this.score
+      this.game.score += 100;
+      if (this.game.score > this.game.highScore) {
+        this.game.highScore = this.game.score
       }
       return true;
     }
@@ -111,19 +110,14 @@
     this.paused = true;
     window.clearInterval(this.interval);
     this.interval = null;
-    this.board = new SnakeGame.Board(this.$el);
+    // gotta fix somehow here
+    this.game.board = new SnakeGame.Board(this.$el);
     $(".snake").removeClass("snake");
     $(".apple").removeClass("apple");
-    if (this.count > 0) {
-      $("game-over").open();
-    } else {
-      document.getElementById("game-over").showModal();
-    }
-
+    $("#game-over").show();
   };
 
   View.prototype.restart = function () {
-    this.count += 1;
     this.gameover = false;
     this.pasued = false;
     $("#game-over").hide();

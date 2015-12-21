@@ -9,15 +9,6 @@ figure{
   border: 1px solid black;
 }
 
-/*.clearfix:after{
-  display: block;
-  content: "";
-  clear: both;
-}*/
-
-ul{
-}
-
 li{
   float: left;
   list-style: none;
@@ -32,4 +23,8 @@ li.snake{
 
 li.apple {
   background-color: red;
+}
+
+#game-over {
+  display: none;
 }
