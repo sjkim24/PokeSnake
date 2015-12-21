@@ -15,9 +15,7 @@
     switch (this.dir)
     {
       case "N":
-
         this.segments.unshift(new SnakeGame.Coord([this.head.x - 1, this.head.y]));
-
         break;
       case "S":
         this.segments.unshift(new SnakeGame.Coord([this.head.x + 1, this.head.y]));

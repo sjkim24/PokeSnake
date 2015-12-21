@@ -4,11 +4,10 @@
     window.SnakeGame = {};
   }
 
-  var Board = SnakeGame.Board = function (figure) {
+  var Board = SnakeGame.Board = function ($el, snake) {
     this.dim = 20;
-    this.setBoard(figure);
-    this.snake = new SnakeGame.Snake();
-    this.generateApple();
+    this.setBoard($el);
+    this.snake = snake;
   };
 
   Board.prototype.setBoard = function(figure) {
@@ -20,26 +19,33 @@
     }
   };
 
-  Board.prototype.randomPair = function () {
+  Board.prototype.randomCoord = function () {
     var x = Math.floor(Math.random() * this.dim);
     var y = Math.floor(Math.random() * this.dim);
-    var validPos = !_.any(this.snake.segments, function (coord) {
+    return [x, y]
+  };
+
+  Board.prototype.validCoord = function () {
+    var randomCoord = this.randomCoord();
+    var x = randomCoord[0];
+    var y = randomCoord[1];
+    var validCoord = !_.any(this.snake.segments, function (coord) {
       return (coord.x === x && coord.y === y);
     });
-    if (validPos) {
+    if (validCoord) {
       return [x, y];
     }
   };
 
-  Board.prototype.generateApple = function () {
-    var newAppleCoord;
-    while (!newAppleCoord) {
-      newAppleCoord = this.randomPair();
-    }
-    var apple = new SnakeGame.Apple(new SnakeGame.Coord(newAppleCoord));
-    this.apple = apple;
-  };
-
+  // Board.prototype.generateApple = function () {
+  //   var newAppleCoord;
+  //   while (!newAppleCoord) {
+  //     newAppleCoord = this.validCoord();
+  //   }
+  //   var apple = new SnakeGame.Apple(new SnakeGame.Coord(newAppleCoord));
+  //   this.apple = apple;
+  // };
+  //
 
 
 

@@ -10,18 +10,14 @@
     this.pos = pos;
   };
 
-  Coord.prototype.plus = function (delta) {
-    this.x += delta.x;
-    this.y += delta.y;
-    return this;
-  };
+  // Coord.prototype.plus = function (delta) {
+  //   this.x += delta.x;
+  //   this.y += delta.y;
+  //   return this;
+  // };
 
   Coord.prototype.equals = function (newCoord) {
     return (_.isEqual(newCoord.pos, this.pos));
-  };
-
-  Coord.prototype.gameovertest = function () {
-    console.log("over")
   };
 
 })();

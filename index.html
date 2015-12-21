@@ -9,16 +9,18 @@
     <link rel="stylesheet" href="css/snake.css" type="text/css">
     <script src="vendor/jquery-1.11.3.min.js"></script>
     <script src="vendor/underscore.js"></script>
+    <script src="vendor/keymaster.js"></script>
     <script src="js/coordinate.js"></script>
     <script src="js/apple.js"></script>
     <script src="js/board.js"></script>
     <script src="js/snake.js"></script>
     <script src="js/view.js"></script>
-
+    <script src="js/game.js"></script>
     <figure class="snake-game"></figure>
     <script>
         var game = new SnakeGame.Game($(".snake-game"));
-        game.start();
+        var view = new SnakeGame.View($(".snake-game"), game);
+        view.startScreen();
     </script>
   </body>
 </html>

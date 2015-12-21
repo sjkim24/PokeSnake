@@ -6,31 +6,32 @@
 
   var Game = SnakeGame.Game = function ($el) {
     this.$el = $el;
-    this.view = new SnakeGame.View ($el);
+    this.snake = new SnakeGame.Snake();
+    this.apple;
+    this.board = new SnakeGame.Board($el, this.snake);
+    this.generateApple();
     this.gameover = false;
     this.paused = true;
     this.score = 0;
-    document.getElementById("start-screen").showModal();
-    $(window).on("keydown", this.handleKeys.bind(this));
-    // $(window).off("keydown");
+    this.highScore = 0;
+    // $(window).on("keydown", this.handleKeys.bind(this));
   };
 
-
-  Game.prototype.handleKeys = function (event) {
-    var key = event.keyCode;
-    if (this.gameover && key === 32) {
-      $("#start-screen").hide();
-      this.start();
+  Game.prototype.generateApple = function () {
+    var appleCoord;
+    if (this.board) {
+      while (!appleCoord) {
+        appleCoord = this.board.validCoord();
+      }
     }
+    var apple = new SnakeGame.Apple(new SnakeGame.Coord(appleCoord));
+    this.apple = apple;
   };
 
-  Game.prototype.start = function () {
-    this.gameover = false;
-    this.interval = window.setInterval(this.step.bind(this), 125);
-  };
-
-  Game.prototype.gameOver = function () {
-  };
-
+  // Game.prototype.start = function () {
+  //   this.gameover = false;
+  //   this.paused = true;
+  //   this.view.setStepInterval();
+  // };
 
 })();
