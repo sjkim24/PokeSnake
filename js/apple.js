@@ -8,5 +8,4 @@
     this.coord = coord;
   };
 
-
 })();

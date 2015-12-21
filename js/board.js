@@ -37,16 +37,4 @@
     }
   };
 
-  // Board.prototype.generateApple = function () {
-  //   var newAppleCoord;
-  //   while (!newAppleCoord) {
-  //     newAppleCoord = this.validCoord();
-  //   }
-  //   var apple = new SnakeGame.Apple(new SnakeGame.Coord(newAppleCoord));
-  //   this.apple = apple;
-  // };
-  //
-
-
-
 })();

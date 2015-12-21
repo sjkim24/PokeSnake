@@ -14,7 +14,6 @@
     this.paused = true;
     this.score = 0;
     this.highScore = 0;
-    // $(window).on("keydown", this.handleKeys.bind(this));
   };
 
   Game.prototype.generateApple = function () {
@@ -27,11 +26,5 @@
     var apple = new SnakeGame.Apple(new SnakeGame.Coord(appleCoord));
     this.apple = apple;
   };
-
-  // Game.prototype.start = function () {
-  //   this.gameover = false;
-  //   this.paused = true;
-  //   this.view.setStepInterval();
-  // };
 
 })();

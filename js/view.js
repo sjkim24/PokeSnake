@@ -8,10 +8,8 @@
     this.$el = $el;
     this.game = game;
     this.interval;
-    // $(window).on("keydown", this.handleKeys.bind(this));
+    this.count = 0;
   };
-
-  // View.KEYS = ["W", "N", "E", "S", "R"];
 
   View.prototype.bindKeyHandlers = function () {
     that = this;
@@ -20,6 +18,7 @@
     key('right', function() { that.game.snake.storeTurns("E") });
     key('up', function() { that.game.snake.storeTurns("N") });
     key('space', function() { that.start() });
+    key('r', function() { that.restart() });
   };
 
   View.prototype.startScreen = function () {
@@ -27,7 +26,6 @@
     window.clearInterval(window.timer);
     window.timer = null;
     document.getElementById("start-screen").showModal();
-
   };
 
   View.prototype.start = function () {
@@ -35,45 +33,27 @@
     this.interval = window.setInterval(this.step.bind(this), 125);
   };
 
-
-  // View.prototype.handleKeys = function (event) {
-  //   var key = View.KEYS[event.keyCode];
-  //   debugger
-  //   if (_.indexOf(View.KEYS, key !== -1)) {
-  //     var diff;
-  //     if (key === "W") {
-  //       diff = new SnakeGame.Coord([0, 1]);
-  //     } else if (key === "E") {
-  //       diff = new SnakeGame.Coord([0, -1]);
-  //     } else if (key === "N") {
-  //       diff = new SnakeGame.Coord([1, 0]);
-  //     } else if (key === "S") {
-  //       diff = new SnakeGame.Coord([-1, 0]);
-  //     } else if (this.gameover === true && this.paused === true && key === "R") {
-  //       this.restart();
-  //     }
-  //     this.board.snake.storeTurns(key);
-  //   }
-  // };
-
   View.prototype.setStepInterval = function () {
     this.interval = window.setInterval(this.step.bind(this), 125);
   };
 
   View.prototype.step = function() {
-    // debugger
+    debugger
     this.game.snake.turn();
     var oldsegments = _.clone(this.game.snake.segments);
     this.game.snake.move();
     var newsegments = _.clone(this.game.snake.segments);
     if (this.checkApple(newsegments[0])) {
+      debugger
       this.game.snake.grow(oldsegments[oldsegments.length - 1]);
     }
     this.render(oldsegments, newsegments);
     if (this.selfEatCheck(newsegments) || this.outOfBoundCheck(newsegments)) {
+      debugger
       this.gameOver();
     }
-    $(".score").html(this.score);
+    $(".score").html(this.game.score);
+    $(".high-score").html(this.game.score);
   };
 
   View.prototype.render = function (oldsegments, newsegments) {
@@ -114,6 +94,8 @@
           return true;
         }
       }
+
+      return false;
     }
   };
 
@@ -132,13 +114,20 @@
     this.board = new SnakeGame.Board(this.$el);
     $(".snake").removeClass("snake");
     $(".apple").removeClass("apple");
-    document.getElementById("game-over").showModal();
+    if (this.count > 0) {
+      $("game-over").open();
+    } else {
+      document.getElementById("game-over").showModal();
+    }
+
   };
 
   View.prototype.restart = function () {
+    this.count += 1;
     this.gameover = false;
     this.pasued = false;
     $("#game-over").hide();
+    this.game.snake = new SnakeGame.Snake();
     this.interval = window.setInterval(this.step.bind(this), 125);
   };
 
