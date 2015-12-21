@@ -15,11 +15,10 @@
 
   View.prototype.bindKeyHandlers = function () {
     that = this;
-    debugger
-    key('left', function() { that.game.snake.storeTurn("W") });
-    // key('down', function() { that.game.ship.power(1) });
-    // key('right', function() { that.game.ship.rotateShip(15) });
-    // key('up', function() { that.game.ship.power(-1) });
+    key('left', function() { that.game.snake.storeTurns("W") });
+    key('down', function() { that.game.snake.storeTurns("S") });
+    key('right', function() { that.game.snake.storeTurns("E") });
+    key('up', function() { that.game.snake.storeTurns("N") });
     key('space', function() { that.start() });
   };
 
@@ -32,6 +31,7 @@
   };
 
   View.prototype.start = function () {
+    $("#start-screen").hide();
     this.interval = window.setInterval(this.step.bind(this), 125);
   };
 
