@@ -12,10 +12,10 @@
 
   View.prototype.bindKeyHandlers = function () {
     that = this;
-    key('left', function() { that.game.snake.storeTurns("W") });
-    key('down', function() { that.game.snake.storeTurns("S") });
-    key('right', function() { that.game.snake.storeTurns("E") });
-    key('up', function() { that.game.snake.storeTurns("N") });
+    key('left', function() { that.game.board.snake.storeTurns("W") });
+    key('down', function() { that.game.board.snake.storeTurns("S") });
+    key('right', function() { that.game.board.snake.storeTurns("E") });
+    key('up', function() { that.game.board.snake.storeTurns("N") });
     key('space', function() { that.start() });
   };
 
@@ -42,6 +42,7 @@
   };
 
   View.prototype.step = function() {
+    // var snake = this.game.board.snake;
     this.game.board.snake.turn();
     var oldsegments = _.clone(this.game.board.snake.segments);
     this.game.board.snake.move();

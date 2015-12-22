@@ -36,9 +36,11 @@
     for (var i = this.turns.length - 1; i >= 0; i--) {
       if (this.isOpposite(this.turns[i]) === false) {
         this.dir = this.turns[i];
+        this.turns = [];
+        break;
       }
     }
-    this.turns = [];
+
   };
 
   Snake.prototype.isOpposite = function (direction) {
