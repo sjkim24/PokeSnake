@@ -58,12 +58,12 @@
   View.prototype.render = function (oldsegments, newsegments) {
     $("#score").html("Score: " + this.game.score);
     $("#high-score").html("High Score: " + this.game.highScore);
-    var snakeX = newsegments[0].x;
-    var snakeY = newsegments[0].y;
-    $("#" + snakeX).children("." + snakeY).addClass("snake");
     var removex = _.last(oldsegments).x;
     var removey = _.last(oldsegments).y;
     $("#" + removex).children("." + removey).removeClass("snake");
+    var snakeX = newsegments[0].x;
+    var snakeY = newsegments[0].y;
+    $("#" + snakeX).children("." + snakeY).addClass("snake");
     this.renderApple();
   };
 
