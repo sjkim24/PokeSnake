@@ -6,25 +6,10 @@
 
   var Game = SnakeGame.Game = function ($el) {
     this.$el = $el;
-    this.snake = new SnakeGame.Snake();
-    this.apple;
-    this.board = new SnakeGame.Board($el, this.snake);
-    this.generateApple();
-    this.gameover = false;
-    this.paused = true;
+    this.board = new SnakeGame.Board($el, new SnakeGame.Snake());
+    this.gameOver = false;
     this.score = 0;
     this.highScore = 0;
-  };
-
-  Game.prototype.generateApple = function () {
-    var appleCoord;
-    if (this.board) {
-      while (!appleCoord) {
-        appleCoord = this.board.validCoord();
-      }
-    }
-    var apple = new SnakeGame.Apple(new SnakeGame.Coord(appleCoord));
-    this.apple = apple;
   };
 
 })();

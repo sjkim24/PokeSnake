@@ -8,15 +8,24 @@
     this.dim = 20;
     this.setBoard($el);
     this.snake = snake;
+    this.apple;
+    this.generateApple();
   };
 
-  Board.prototype.setBoard = function(figure) {
+  Board.prototype.setBoard = function ($el) {
     for (var i = 0; i < this.dim; i++) {
-      figure.append("<ul id=" + i + "></ul>");
+      $el.append("<ul id=" + i + "></ul>");
       for (var j = 0; j < this.dim; j++) {
         $("#" + i).append("<li class=" + j + "></li>");
       }
     }
+  };
+
+  Board.prototype.resetBoard = function () {
+    $(".snake").removeClass("snake");
+    $(".apple").removeClass("apple");
+    this.snake = new SnakeGame.Snake ();
+    this.generateApple();
   };
 
   Board.prototype.randomCoord = function () {
@@ -35,6 +44,15 @@
     if (validCoord) {
       return [x, y];
     }
+  };
+
+  Board.prototype.generateApple = function () {
+    var appleCoord;
+    while (!appleCoord) {
+      appleCoord = this.validCoord();
+    }
+    var apple = new SnakeGame.Apple(new SnakeGame.Coord(appleCoord));
+    this.apple = apple;
   };
 
 })();
