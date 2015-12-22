@@ -48,11 +48,10 @@
     var newsegments = _.clone(this.game.board.snake.segments);
     if (this.game.appleCheck(newsegments[0])) {
       this.game.board.snake.grow(oldsegments[oldsegments.length - 1]);
-    }
-    this.render(oldsegments, newsegments);
-    if (this.game.selfEatCheck(newsegments) || this.game.outOfBoundCheck(newsegments)) {
+    } else if (this.game.selfEatCheck(newsegments) || this.game.outOfBoundCheck(newsegments)) {
       this.gameOver();
     }
+    this.render(oldsegments, newsegments);
   };
 
   View.prototype.render = function (oldsegments, newsegments) {
