@@ -1,5 +1,5 @@
 # PokeSnake
-[Live Link](https://www.sjkim.io/Asteroids)
+[Live Link Coming Soon](#)
 
 This is a snake game made with JavaScript and Pokemon Sprites.
 
