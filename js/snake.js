@@ -27,7 +27,6 @@
         this.segments.unshift(new SnakeGame.Coord([this.head.x, this.head.y + 1]));
         break;
     }
-
     this.head = this.segments[0];
     this.segments.pop();
   };
@@ -40,7 +39,6 @@
         break;
       }
     }
-
   };
 
   Snake.prototype.isOpposite = function (direction) {

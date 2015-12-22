@@ -64,7 +64,9 @@
     var snakeX = newsegments[0].x;
     var snakeY = newsegments[0].y;
     $("#" + snakeX).children("." + snakeY).addClass("snake");
-    this.renderApple();
+    if ($(".apple").length === 0) {
+      this.renderApple();
+    }
   };
 
   View.prototype.renderApple = function () {
