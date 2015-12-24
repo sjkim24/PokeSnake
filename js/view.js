@@ -34,12 +34,12 @@
     } else {
       $("#start-screen").hide();
     }
-    this.interval = window.setInterval(this.step.bind(this), 125);
+    this.interval = window.setInterval(this.step.bind(this), 200);
   };
 
-  View.prototype.setStepInterval = function () {
-    this.interval = window.setInterval(this.step.bind(this), 125);
-  };
+  // View.prototype.setStepInterval = function () {
+  //   this.interval = window.setInterval(this.step.bind(this), 125);
+  // };
 
   View.prototype.step = function() {
     this.game.board.snake.turn();
@@ -52,6 +52,7 @@
       this.gameOver();
     }
     this.render(oldsegments, newsegments);
+
   };
 
   View.prototype.render = function (oldsegments, newsegments) {
@@ -59,10 +60,10 @@
     $("#high-score").html("High Score: " + this.game.highScore);
     var removex = _.last(oldsegments).x;
     var removey = _.last(oldsegments).y;
-    $("#" + removex).children("." + removey).removeClass("snake");
+    $("#" + removex).children("." + removey).removeClass("snake N E S W");
     var snakeX = newsegments[0].x;
     var snakeY = newsegments[0].y;
-    $("#" + snakeX).children("." + snakeY).addClass("snake");
+    $("#" + snakeX).children("." + snakeY).addClass("snake " + this.game.board.snake.dir);
     if ($(".apple").length === 0) {
       this.renderApple();
     }

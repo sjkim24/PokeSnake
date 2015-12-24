@@ -5,7 +5,7 @@
   }
 
   var Board = SnakeGame.Board = function ($el, snake) {
-    this.dim = 20;
+    this.dim = 10;
     this.setBoard($el);
     this.snake = snake;
     this.apple;
