@@ -1,6 +1,11 @@
-@keyframes play {
+@keyframes trainer {
    from { background-position-x: 0px  }
    to { background-position-x: -150px }
+}
+
+@keyframes charmander {
+   from { background-position-x: 0px  }
+   to { background-position-x: -100px }
 }
 
 html, head, body, h1, figure, li, ul {
@@ -22,9 +27,14 @@ li{
   border: 1px solid black;
 }
 
-.snake {
-  background:  url("../assets/blue.png") left center;
-  animation: play .2s steps(3) infinite;
+.blue {
+  background:  url("../assets/blue.png");
+  animation: trainer .2s steps(3) infinite;
+}
+
+.charmander {
+  background: url("../assets/charmander.png");
+  animation: charmander .2s steps(2) infinite;
 }
 
 .apple {

@@ -52,18 +52,31 @@
       this.gameOver();
     }
     this.render(oldsegments, newsegments);
-
   };
 
   View.prototype.render = function (oldsegments, newsegments) {
+    debugger
     $("#score").html("Score: " + this.game.score);
     $("#high-score").html("High Score: " + this.game.highScore);
     var removex = _.last(oldsegments).x;
     var removey = _.last(oldsegments).y;
-    $("#" + removex).children("." + removey).removeClass("snake N E S W");
-    var snakeX = newsegments[0].x;
-    var snakeY = newsegments[0].y;
-    $("#" + snakeX).children("." + snakeY).addClass("snake " + this.game.board.snake.dir);
+    // var removex = oldsegments[0].x;
+    // var removey = oldsegments[0].y;
+    $("#" + removex).children("." + removey).removeClass("blue N E S W");
+    $("#" + removex).children("." + removey).removeClass("charmander N E S W");
+    for (var i = 0; i < newsegments.length; i++) {
+      var snakeX = newsegments[i].x;
+      var snakeY = newsegments[i].y;
+      if (i === 0) {
+        debugger
+        $("#" + snakeX).children("." + snakeY).addClass("blue " + this.game.board.snake.dir);
+        debugger
+      } else {
+        debugger
+        $("#" + snakeX).children("." + snakeY).addClass("charmander " + this.game.board.snake.dir);
+        debugger
+      }
+    }
     if ($(".apple").length === 0) {
       this.renderApple();
     }

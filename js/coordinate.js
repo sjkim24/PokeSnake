@@ -4,7 +4,7 @@
     window.SnakeGame = {};
   }
 
-  var Coord = SnakeGame.Coord = function (pos, dir) {
+  var Coord = SnakeGame.Coord = function (pos) {
     this.x = pos[0];
     this.y = pos[1];
     this.pos = pos;
