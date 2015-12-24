@@ -8,6 +8,7 @@
     this.$el = $el;
     this.board = new SnakeGame.Board($el, new SnakeGame.Snake());
     this.gameOver = false;
+    this.paused = true;
     this.score = 0;
     this.highScore = 0;
   };

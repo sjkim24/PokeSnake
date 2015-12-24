@@ -28,13 +28,16 @@
 
   View.prototype.start = function () {
     this.game.score = 0;
-    if (this.game.gameOver) {
+    if (this.game.gameOver && this.game.paused) {
       $("#game-over").hide();
       this.game.board.resetBoard();
-    } else {
+      this.game.paused = false;
+      this.interval = window.setInterval(this.step.bind(this), 200);
+    } else if (!this.game.gameOver && this.game.paused) {
       $("#start-screen").hide();
+      this.game.paused = false;
+      this.interval = window.setInterval(this.step.bind(this), 200);
     }
-    this.interval = window.setInterval(this.step.bind(this), 200);
   };
 
   // View.prototype.setStepInterval = function () {
@@ -55,7 +58,7 @@
   };
 
   View.prototype.render = function (oldsegments, newsegments) {
-    debugger
+    // debugger
     $("#score").html("Score: " + this.game.score);
     $("#high-score").html("High Score: " + this.game.highScore);
     var removex = _.last(oldsegments).x;
@@ -68,13 +71,13 @@
       var snakeX = newsegments[i].x;
       var snakeY = newsegments[i].y;
       if (i === 0) {
-        debugger
+        // debugger
         $("#" + snakeX).children("." + snakeY).addClass("blue " + this.game.board.snake.dir);
-        debugger
+        // debugger
       } else {
-        debugger
+        // debugger
         $("#" + snakeX).children("." + snakeY).addClass("charmander " + this.game.board.snake.dir);
-        debugger
+        // debugger
       }
     }
     if ($(".apple").length === 0) {
@@ -91,6 +94,7 @@
 
   View.prototype.gameOver = function () {
     this.game.gameOver = true;
+    this.game.paused = true;
     this.interval = window.clearInterval(this.interval);
     $("#game-over").show();
   };
