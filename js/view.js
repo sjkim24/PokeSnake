@@ -57,9 +57,9 @@
   };
 
   View.prototype.render = function (oldsegments, newsegments, ateApple) {
-    debugger
     $("#score").html("Score: " + this.game.score);
     $("#high-score").html("High Score: " + this.game.highScore);
+
     for (var i = 0; i < oldsegments.length; i++) {
       var removex = oldsegments[i].x;
       var removey = oldsegments[i].y;
@@ -78,36 +78,14 @@
           $("#" + removex).children("." + removey).removeClass("charmander");
         }
       }
-      // if (i === 0 && oldsegments.length === 1 && ateApple) {
-      //   $("#" + removex).children("." + removey).removeClass("blue");
-      // } else if (i === 0 && oldsegments.length === 1) {
-      //   $("#" + removex).children("." + removey).removeClass("blue N S E W");
-      // } else if (i === 0 && oldsegments.length > 1) {
-      //   $("#" + removex).children("." + removey).removeClass("blue");
-      // } else if (i > 0 && i < oldsegments.length - 1) {
-      //   $("#" + removex).children("." + removey).removeClass("charmander");
-      // } else {
-      //   $("#" + removex).children("." + removey).removeClass("blue charmander N E S W");
-      // }
     }
-    // var removex = _.last(oldsegments).x;
-    // var removey = _.last(oldsegments).y;
-    // if (ateApple) {
-    //   $("#" + removex).children("." + removey).removeClass("blue");
-    // } else {
-    //   $("#" + removex).children("." + removey).removeClass("blue N E S W");
-    // }
-    // $("#" + removex).children("." + removey).removeClass("charmander");
+
     for (var i = 0; i < newsegments.length; i++) {
       var snakeX = newsegments[i].x;
       var snakeY = newsegments[i].y;
       if (i === 0) {
         $("#" + snakeX).children("." + snakeY).addClass("blue " + this.game.board.snake.dir);
       } else {
-        // $("#" + snakeX).children("." + snakeY).removeClass("blue");
-        // if (newsegments.length == 2) {
-        //   $("#" + snakeX).children("." + snakeY).addClass("charmander " + this.game.board.snake.dir);
-        // }
         $("#" + snakeX).children("." + snakeY).addClass("charmander");
       }
     }
