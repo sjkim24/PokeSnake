@@ -10,7 +10,11 @@
 
 html, head, body, h1, figure, li, ul {
   margin: 0;
+  border: 0;
   padding: 0;
+  background: transparent;
+  font: inherit;
+  text-style: inherit;
 }
 
 figure{
@@ -19,26 +23,33 @@ figure{
   border: 1px solid black;
 }
 
-li{
-  float: left;
+ul, li {
   list-style: none;
+}
+
+li {
+  float: left;
   height: 50px;
   width: 50px;
+  background: url("../assets/grass.png");
   border: 1px solid black;
 }
 
 .blue {
-  background:  url("../assets/blue.png");
+  background: url("../assets/blue.png");
+  background-color: transparent;
   animation: trainer .2s steps(3) infinite;
 }
 
 .charmander {
   background: url("../assets/charmander.png");
+  background-color: transparent;
   animation: charmander .2s steps(2) infinite;
 }
 
 .apple {
   background: url("../assets/pokeball.png");
+  background-color: transparent;
 }
 
 .S {

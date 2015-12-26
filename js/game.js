@@ -9,17 +9,17 @@
     this.board = new SnakeGame.Board($el, new SnakeGame.Snake());
     this.gameOver = false;
     this.paused = true;
-    this.score = 0;
-    this.highScore = 0;
+    this.level = 0;
+    this.bestLevel = 0;
   };
 
   Game.prototype.appleCheck = function (coord) {
     if (coord.equals(this.board.apple.coord)) {
       this.board.generateApple();
       $(".apple").removeClass("apple");
-      this.score += 100;
-      if (this.score > this.highScore) {
-        this.highScore = this.score
+      this.level += 1;
+      if (this.level > this.bestLevel) {
+        this.bestLevel = this.level
       }
       return true;
     }

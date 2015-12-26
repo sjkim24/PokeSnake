@@ -21,13 +21,13 @@
 
   View.prototype.startScreen = function () {
     this.bindKeyHandlers();
-    $("#score").html("Score: " + this.game.score);
-    $("#high-score").html("High Score: " + this.game.score);
+    $("#level").html("Lv: " + this.game.level);
+    $("#best-level").html("Best Lv : " + this.game.level);
     window.clearInterval(this.interval);
   };
 
   View.prototype.start = function () {
-    this.game.score = 0;
+    this.game.level = 0;
     if (this.game.gameOver && this.game.paused) {
       $("#game-over").hide();
       this.game.board.resetBoard();
@@ -57,8 +57,8 @@
   };
 
   View.prototype.render = function (oldsegments, newsegments, ateApple) {
-    $("#score").html("Score: " + this.game.score);
-    $("#high-score").html("High Score: " + this.game.highScore);
+    $("#level").html("Lv: " + this.game.level);
+    $("#best-level").html("Best Lv : " + this.game.bestLevel);
 
     for (var i = 0; i < oldsegments.length; i++) {
       var removex = oldsegments[i].x;
