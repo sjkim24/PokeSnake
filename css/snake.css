@@ -93,7 +93,6 @@ ul {
   width: 100%;
   overflow: hidden;
   background: url("../assets/tree.png");
-  background-repeat: repeat-x;
 }
 
 .blink {
