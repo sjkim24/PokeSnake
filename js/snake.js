@@ -6,7 +6,10 @@
 
   var Snake = SnakeGame.Snake = function () {
     this.dir = "S";
-    this.segments = [ new SnakeGame.Coord([0,4], "snake-head") ];
+    this.startX = Math.floor($(window).height() / 100) - 2;
+    this.startY = Math.floor($(window).width() / 100);
+    debugger
+    this.segments = [ new SnakeGame.Coord([this.startX, this.startY], "snake-head") ];
     this.head = this.segments[0];
     this.turns = [];
   };

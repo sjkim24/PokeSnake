@@ -84,7 +84,6 @@
       var snakeX = newsegments[i].x;
       var snakeY = newsegments[i].y;
       if (i === 0) {
-        debugger
         $("#" + snakeX).children("." + snakeY).addClass("blue " + this.game.board.snake.dir);
       } else {
         $("#" + snakeX).children("." + snakeY).addClass("charmander");
