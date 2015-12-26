@@ -6,6 +6,8 @@
 
   var Board = SnakeGame.Board = function ($el, snake) {
     this.dim = 10;
+    this.width = Math.floor($(window).width() / 50);
+    this.height = Math.floor($(window).height() / 50);
     this.setBoard($el);
     this.snake = snake;
     this.apple;
@@ -13,9 +15,9 @@
   };
 
   Board.prototype.setBoard = function ($el) {
-    for (var i = 0; i < this.dim; i++) {
+    for (var i = 0; i < Math.floor(this.height); i++) {
       $el.append("<ul id=" + i + "></ul>");
-      for (var j = 0; j < this.dim; j++) {
+      for (var j = 0; j < Math.floor(this.width); j++) {
         $("#" + i).append("<li class=" + j + "></li>");
       }
     }
@@ -30,8 +32,8 @@
   };
 
   Board.prototype.randomCoord = function () {
-    var x = Math.floor(Math.random() * this.dim);
-    var y = Math.floor(Math.random() * this.dim);
+    var x = Math.floor(Math.random() * this.height);
+    var y = Math.floor(Math.random() * this.width);
     return [x, y]
   };
 

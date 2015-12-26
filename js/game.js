@@ -40,8 +40,9 @@
   };
 
   Game.prototype.outOfBoundCheck = function (segments) {
+
     var head = segments[0];
-    if ((head.x < 0 || head.x > 19) || (head.y < 0 || head.y > 19)) {
+    if ((head.x < 0 || head.x > this.board.height) || (head.y < 0 || head.y > this.board.width)) {
       return true;
     }
   };

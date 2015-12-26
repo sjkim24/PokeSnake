@@ -8,7 +8,13 @@
    to { background-position-x: -100px }
 }
 
-html, head, body, h1, figure, li, ul {
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+html, head, body, div, h1, h2, figure, li, ul {
   margin: 0;
   border: 0;
   padding: 0;
@@ -17,14 +23,54 @@ html, head, body, h1, figure, li, ul {
   text-style: inherit;
 }
 
+div {
+  font-size: 11px;
+  font-family: 'Press Start 2P';
+  color: #F25F5C;
+}
+
+#start-screen, #game-over {
+  position: absolute;
+  width: 300px;
+  height: 100px;
+  top: 45%;
+  left: 35%;
+  color: #FFFFFF;
+  background-color: #004A80;
+  z-index: 1;
+  border: 10px solid #C9A93E;
+  border-radius: 10px;
+}
+
+#start-screen h1 {
+  font-size: 15px;
+  padding: 15px 0 20px 10px;
+}
+
+#start-screen h2 {
+  padding: 0 0 5px 10px;
+}
+
+/*#level {
+  float: left;
+}
+
+#best-level {
+  float: right;
+}*/
+
 figure{
-  height: 520px;
-  width: 520px;
-  border: 1px solid black;
+  height: 100%;
+  width: 100%;
+
 }
 
 ul, li {
   list-style: none;
+}
+
+ul {
+  position: relative;
 }
 
 li {
@@ -32,6 +78,10 @@ li {
   height: 50px;
   width: 50px;
   background: url("../assets/grass.png");
+}
+
+.blink {
+  animation: blink 1.5s steps(5, start) infinite;
 }
 
 .blue {
