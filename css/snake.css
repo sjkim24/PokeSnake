@@ -32,23 +32,22 @@ li {
   height: 50px;
   width: 50px;
   background: url("../assets/grass.png");
-  border: 1px solid black;
 }
 
 .blue {
-  background: url("../assets/blue.png");
+  background: url("../assets/blue.png"), url("../assets/grass.png");
   background-color: transparent;
   animation: trainer .2s steps(3) infinite;
 }
 
 .charmander {
-  background: url("../assets/charmander.png");
+  background: url("../assets/charmander.png"), url("../assets/grass.png");
   background-color: transparent;
   animation: charmander .2s steps(2) infinite;
 }
 
 .apple {
-  background: url("../assets/pokeball.png");
+  background: url("../assets/pokeball.png"), url("../assets/grass.png");
   background-color: transparent;
 }
 
