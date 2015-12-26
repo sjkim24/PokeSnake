@@ -21,6 +21,7 @@
       if (this.level > this.bestLevel) {
         this.bestLevel = this.level
       }
+
       return true;
     }
   };
@@ -40,9 +41,8 @@
   };
 
   Game.prototype.outOfBoundCheck = function (segments) {
-
     var head = segments[0];
-    if ((head.x < 0 || head.x > this.board.height) || (head.y < 0 || head.y > this.board.width)) {
+    if ((head.x < 0 || head.x > this.board.height - 1) || (head.y < 0 || head.y > this.board.width - 1)) {
       return true;
     }
   };

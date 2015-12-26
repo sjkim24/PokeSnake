@@ -5,7 +5,6 @@
   }
 
   var Board = SnakeGame.Board = function ($el, snake) {
-    this.dim = 10;
     this.width = Math.floor($(window).width() / 50);
     this.height = Math.floor($(window).height() / 50);
     this.setBoard($el);
@@ -15,10 +14,23 @@
   };
 
   Board.prototype.setBoard = function ($el) {
-    for (var i = 0; i < Math.floor(this.height); i++) {
+    var addSideTree = this.width !== $(window).width() / 50;
+    var addBottomTree = this.height !== $(window).height() / 50;
+    for (var i = 0; i < this.height; i++) {
       $el.append("<ul id=" + i + "></ul>");
-      for (var j = 0; j < Math.floor(this.width); j++) {
-        $("#" + i).append("<li class=" + j + "></li>");
+      if (addBottomTree && i === this.height - 1) {
+        var height = $(window).height() - (this.height * 50);
+        $el.append("<ul class=bottom-tree style=height:" + height + "px></ul>")
+      }
+      for (var j = 0; j < this.width; j++) {
+        var $li = $("<li></li>");
+        $li.addClass(j.toString());
+        $li.addClass("square");
+        $("#" + i).append($li);
+        if (addSideTree && j === this.width - 1) {
+          var width = $(window).width() - (this.width * 50);
+          $("#" + i).append("<li class=side-tree style=width:" + width + "px></li>");
+        }
       }
     }
   };

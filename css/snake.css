@@ -75,11 +75,25 @@ ul {
   position: relative;
 }
 
-li {
+.square {
   float: left;
   height: 50px;
   width: 50px;
   background: url("../assets/grass.png");
+}
+
+.side-tree {
+  float: none;
+  height: 50px;
+  overflow: hidden;
+  background: url("../assets/tree.png");
+}
+
+.bottom-tree {
+  width: 100%;
+  overflow: hidden;
+  background: url("../assets/tree.png");
+  background-repeat: repeat-x;
 }
 
 .blink {

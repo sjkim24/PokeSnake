@@ -70,8 +70,8 @@
       } else {
         if (i === 0) {
           $("#" + removex).children("." + removey).removeClass("blue");
-        } else if (oldsegments.length > 1 && ateApple && i == oldsegments.length - 1) {
-          $("#" + removex).children("." + removey).removeClass("charmander");
+        // } else if (oldsegments.length > 1 && ateApple && i == oldsegments.length - 1) {
+        //   $("#" + removex).children("." + removey).removeClass("charmander");
         } else if (i == oldsegments.length - 1 && !ateApple) {
           $("#" + removex).children("." + removey).removeClass("charmander N S E W");
         } else {
@@ -84,6 +84,7 @@
       var snakeX = newsegments[i].x;
       var snakeY = newsegments[i].y;
       if (i === 0) {
+        debugger
         $("#" + snakeX).children("." + snakeY).addClass("blue " + this.game.board.snake.dir);
       } else {
         $("#" + snakeX).children("." + snakeY).addClass("charmander");
