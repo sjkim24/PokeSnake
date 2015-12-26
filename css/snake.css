@@ -30,11 +30,13 @@ div {
 }
 
 #start-screen, #game-over {
-  position: absolute;
+  position: fixed;
   width: 300px;
   height: 100px;
-  top: 45%;
-  left: 35%;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -150px;
   color: #FFFFFF;
   background-color: #004A80;
   z-index: 1;
