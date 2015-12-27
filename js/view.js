@@ -35,6 +35,7 @@
     $("#start-screen-audio")[0].pause();
     $("#game-start-audio").attr("loop", "loop");
     $("#game-start-audio")[0].play();
+    debugger
     if (this.game.gameOver && this.game.paused) {
       $("#game-over").hide();
       this.game.board.resetBoard();
@@ -42,8 +43,10 @@
       this.interval = window.setInterval(this.step.bind(this), 200);
     } else if (!this.game.gameOver && this.game.paused) {
       $("#start-screen").hide();
+      $("#starting").show();
       this.game.paused = false;
       window.setTimeout(function () {
+        $("#starting").hide();
         that.interval = window.setInterval(that.step.bind(that), 200);
       }, 3250)
 
@@ -112,6 +115,7 @@
   };
 
   View.prototype.gameOver = function () {
+    $("#game-start-audio").animate({ volume: 0.0 }, 2000)
     this.game.gameOver = true;
     this.game.paused = true;
     this.interval = window.clearInterval(this.interval);

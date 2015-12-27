@@ -29,21 +29,6 @@ div {
   font-family: 'Press Start 2P';
 }
 
-#start-screen, #game-over {
-  position: fixed;
-  width: 300px;
-  height: 100px;
-  top: 50%;
-  left: 50%;
-  margin-top: -50px;
-  margin-left: -150px;
-  color: #FFFFFF;
-  background-color: #004A80;
-  z-index: 1;
-  border: 10px solid #C9A93E;
-  border-radius: 10px;
-}
-
 h1 {
   font-size: 15px;
   padding: 15px 0 20px 10px;
@@ -79,6 +64,27 @@ header {
   display: block;
   height: 50px;
   background-color: black;
+}
+
+/*.blues_adventure {
+  position: fixed;
+  /*background: url('../assets/blues_adventure.png');*/
+
+/*}*/
+
+.info {
+  position: fixed;
+  width: 300px;
+  height: 100px;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -150px;
+  color: #FFFFFF;
+  background-color: #004A80;
+  z-index: 1;
+  border: 10px solid #C9A93E;
+  border-radius: 10px;
 }
 
 .square {
@@ -138,6 +144,6 @@ header {
   background-position-y: -150px;
 }
 
-#game-over {
+#game-over, #starting {
   display: none;
 }
