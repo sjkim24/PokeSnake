@@ -52,6 +52,19 @@ h2 {
   padding: 10px 10px 0 0;
 }
 
+figure, #start-screen {
+  animation: fadein 10s;
+}
+
+#game-over, #starting {
+  display: none;
+}
+
+#starting h1 {
+  padding: 40px 0 0 0;
+  text-align: center;
+}
+
 figure {
   height: 100% - 30px;
   width: 100%;
@@ -152,12 +165,4 @@ header {
 
 .N {
   background-position-y: -150px;
-}
-
-figure, #start-screen {
-  animation: fadein 12s;
-}
-
-#game-over, #starting {
-  display: none;
 }
