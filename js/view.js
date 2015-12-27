@@ -24,15 +24,15 @@
     this.bindKeyHandlers();
     $("#level").html("Lv: " + this.game.level);
     $("#best-level").html("Best Lv: " + this.game.level);
-    // $("#start-screen-audio").attr("loop", "loop");
-    // $("#start-screen-audio")[0].play();
+    $("#start-screen-audio").attr("loop", "loop");
+    $("#start-screen-audio")[0].play();
     window.clearInterval(this.interval);
   };
 
   View.prototype.start = function () {
     var that = this;
     this.game.level = 0;
-    // $("#start-screen-audio")[0].pause();
+    $("#start-screen-audio")[0].pause();
     // $("#game-start-audio").attr("loop", "loop");
     // $("#game-start-audio")[0].play();
     if (this.game.gameOver && this.game.paused) {
