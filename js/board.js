@@ -5,7 +5,7 @@
   }
 
   var Board = SnakeGame.Board = function ($el, snake) {
-    this.maxX = Math.floor(($(window).height() - 50) / 50);
+    this.maxX = Math.floor(($(window).height() - 30) / 50);
     this.maxY = Math.floor($(window).width() / 50);
     this.setBoard($el);
     this.snake = snake;
@@ -19,7 +19,7 @@
     for (var i = 0; i < this.maxX; i++) {
       $el.append("<ul id=" + i + "></ul>");
       if (addBottomTree && i === this.maxX - 1) {
-        var height = $(window).height() - (this.maxX * 50) - 50;
+        var height = $(window).height() - (this.maxX * 50) - 30;
         $el.append("<ul class=bottom-tree style=height:" + height + "px></ul>")
       }
       for (var j = 0; j < this.maxY; j++) {

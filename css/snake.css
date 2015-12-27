@@ -42,16 +42,18 @@ h2 {
 }
 
 
-/*#level {
+#level {
   float: left;
+  padding: 10px 0 0 10px;
 }
 
 #best-level {
   float: right;
-}*/
+  padding: 10px 10px 0 0;
+}
 
 figure {
-  height: 100% - 50px;
+  height: 100% - 30px;
   width: 100%;
 }
 
@@ -65,7 +67,7 @@ ul {
 
 header {
   display: block;
-  height: 50px;
+  height: 30px;
   background-color: black;
 }
 
