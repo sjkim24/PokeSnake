@@ -119,10 +119,14 @@ header {
 }
 
 .charmeleon {
-  background: url("../assets/charmeleon2.png"), url("../assets/grass.png");
+  background: url("../assets/charmeleon.png"), url("../assets/grass.png");
 }
 
-.charmander, .charmeleon {
+.charizard {
+  background: url("../assets/charizard.png"), url("../assets/grass.png");
+}
+
+.charmander, .charmeleon, .charizard {
   background-color: transparent;
   animation: charmander .2s steps(2) infinite;
 }

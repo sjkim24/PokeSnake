@@ -81,26 +81,29 @@
       } else {
         if (i === 0) {
           $("#" + removex).children("." + removey).removeClass("blue");
-        //note: upon changing the class to charmleon, few charmander would spawn around the tai
         // } else if (oldsegments.length > 1 && ateApple && i == oldsegments.length - 1) {
         //   $("#" + removex).children("." + removey).removeClass("charmander");
         } else if (i == oldsegments.length - 1 && !ateApple) {
           // $("#" + removex).children("." + removey).removeClass("charmander N S E W");
           if (this.game.level < 3) {
-            debugger
             $("#" + removex).children("." + removey).removeClass("charmander N S E W");
           } else if (this.game.level === 3 && ateApple) {
             $("#" + removex).children("." + removey).removeClass("charmander N S E W");
-          } else if (this.game.level >= 3) {
-            debugger
+          } else if (this.game.level >= 3 && this.game.level < 9) {
             $("#" + removex).children("." + removey).removeClass("charmeleon N S E W");
+          } else if (this.game.level === 9 && ateApple) {
+            $("#" + removex).children("." + removey).removeClass("charmeleon N S E W");
+          } else {
+            $("#" + removex).children("." + removey).removeClass("charizard N S E W");
           }
         } else {
           // $("#" + removex).children("." + removey).removeClass("charmander");
           if (this.game.level <= 3) {
             $("#" + removex).children("." + removey).removeClass("charmander");
-          } else if (this.game.level >= 3) {
+          } else if (this.game.level >= 3 && this.game.level <= 9) {
             $("#" + removex).children("." + removey).removeClass("charmeleon");
+          } else {
+            $("#" + removex).children("." + removey).removeClass("charizard");
           }
         }
       }
@@ -114,11 +117,11 @@
       } else {
         // $("#" + snakeX).children("." + snakeY).addClass("charmander");
         if (this.game.level < 3) {
-          debugger
           $("#" + snakeX).children("." + snakeY).addClass("charmander");
-        } else if (this.game.level >= 3) {
-          debugger
+        } else if (this.game.level >= 3 && this.game.level < 9) {
           $("#" + snakeX).children("." + snakeY).addClass("charmeleon");
+        } else {
+          $("#" + snakeX).children("." + snakeY).addClass("charizard");
         }
 
       }
