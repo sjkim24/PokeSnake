@@ -1,7 +1,7 @@
 # PokeSnake
 [Live Link Coming Soon](#)
 
-This is a snake game made with JavaScript and Pokemon Sprites. Help Blue on his adventure to become a Pokemon Master.
+This is a snake game made with JavaScript and Pokemon Sprites. Help Blue on his adventure to evolve Charmander and become the Pokemon Master.
 
 ![screenshot](assets/screenshot.png)
 
