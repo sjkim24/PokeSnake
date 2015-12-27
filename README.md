@@ -1,5 +1,5 @@
 # PokeSnake
-[Live Link Coming Soon](#)
+[Live](http://www.sjkim.io/PokeSnake/)
 
 This is a snake game made with JavaScript and Pokemon Sprites. Help Blue on his adventure to evolve Charmander and become the Pokemon Master.
 
