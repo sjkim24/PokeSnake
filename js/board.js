@@ -37,7 +37,7 @@
 
   Board.prototype.resetBoard = function () {
     $(".blue").removeClass("blue charmander N E S W");
-    $(".charmander").removeClass("blue charmander N E S W");
+    $(".charmander").removeClass("charmander N E S W");
     $(".apple").removeClass("apple");
     this.snake = new SnakeGame.Snake ();
     this.generateApple();

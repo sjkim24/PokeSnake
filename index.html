@@ -11,11 +11,23 @@
     </header>
     <div id="start-screen">
       <h1>Blue's Adventure</h1>
-      <h2 class>Press Arrow Keys to Move</h2>
+      <h2>Press Arrow Keys to Move</h2>
       <h2 class="blink">Press Space to Start</h2>
     </div>
-    <div id="game-over" class="blink">Game Over. Press Space to Restart</div>
+    <!-- <div id="starting">
+      <h2></h2>
+    </div> -->
+    <div id="game-over">
+      <h1>Game Over</h1>
+      <h2 class="blink">Press Space to Restart</h2>
+    </div>
     <link rel="stylesheet" href="css/snake.css" type="text/css">
+    <audio id="start-screen-audio" loop>
+      <source src="assets/start-screen.mp3" type="audio/mp3" />
+    </audio>
+    <audio id="game-start-audio" loop>
+      <source src="assets/game-start.mp3" type="audio/mp3" />
+    </audio>
     <script src="vendor/jquery-1.11.3.min.js"></script>
     <script src="vendor/underscore.js"></script>
     <script src="vendor/keymaster.js"></script>
@@ -27,9 +39,14 @@
     <script src="js/game.js"></script>
     <figure class="snake-game"></figure>
     <script>
-        var game = new SnakeGame.Game($(".snake-game"));
-        var view = new SnakeGame.View($(".snake-game"), game);
-        view.startScreen();
+      $(function() {
+          // preload image.
+          var Image1 = new Image();
+          Image1.src = "assets/charmander.png";
+          var game = new SnakeGame.Game($(".snake-game"));
+          var view = new SnakeGame.View($(".snake-game"), game);
+          view.startScreen();
+      });
     </script>
   </body>
 </html>

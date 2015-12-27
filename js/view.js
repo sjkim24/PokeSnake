@@ -8,6 +8,7 @@
     this.$el = $el;
     this.game = game;
     this.interval;
+    this.audio;
   };
 
   View.prototype.bindKeyHandlers = function () {
@@ -23,11 +24,17 @@
     this.bindKeyHandlers();
     $("#level").html("Lv: " + this.game.level);
     $("#best-level").html("Best Lv : " + this.game.level);
+    $("#start-screen-audio").attr("loop", "loop");
+    $("#start-screen-audio")[0].play();
     window.clearInterval(this.interval);
   };
 
   View.prototype.start = function () {
+    var that = this;
     this.game.level = 0;
+    $("#start-screen-audio")[0].pause();
+    $("#game-start-audio").attr("loop", "loop");
+    $("#game-start-audio")[0].play();
     if (this.game.gameOver && this.game.paused) {
       $("#game-over").hide();
       this.game.board.resetBoard();
@@ -36,7 +43,10 @@
     } else if (!this.game.gameOver && this.game.paused) {
       $("#start-screen").hide();
       this.game.paused = false;
-      this.interval = window.setInterval(this.step.bind(this), 200);
+      window.setTimeout(function () {
+        that.interval = window.setInterval(that.step.bind(that), 200);
+      }, 3250)
+
     }
   };
 
