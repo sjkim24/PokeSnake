@@ -23,7 +23,7 @@
   View.prototype.startScreen = function () {
     this.bindKeyHandlers();
     $("#level").html("Lv: " + this.game.level);
-    $("#best-level").html("Best Lv : " + this.game.level);
+    $("#best-level").html("Best Lv: " + this.game.level);
     // $("#start-screen-audio").attr("loop", "loop");
     // $("#start-screen-audio")[0].play();
     window.clearInterval(this.interval);
