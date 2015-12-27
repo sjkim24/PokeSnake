@@ -119,6 +119,13 @@ header {
 
 .charmander {
   background: url("../assets/charmander.png"), url("../assets/grass.png");
+}
+
+.charmeleon {
+  background: url("../assets/charmeleon.png"), url("../assets/grass.png");
+}
+
+.charmander, .charmeleon {
   background-color: transparent;
   animation: charmander .2s steps(2) infinite;
 }
