@@ -24,18 +24,17 @@
     this.bindKeyHandlers();
     $("#level").html("Lv: " + this.game.level);
     $("#best-level").html("Best Lv : " + this.game.level);
-    $("#start-screen-audio").attr("loop", "loop");
-    $("#start-screen-audio")[0].play();
+    // $("#start-screen-audio").attr("loop", "loop");
+    // $("#start-screen-audio")[0].play();
     window.clearInterval(this.interval);
   };
 
   View.prototype.start = function () {
     var that = this;
     this.game.level = 0;
-    $("#start-screen-audio")[0].pause();
-    $("#game-start-audio").attr("loop", "loop");
-    $("#game-start-audio")[0].play();
-    debugger
+    // $("#start-screen-audio")[0].pause();
+    // $("#game-start-audio").attr("loop", "loop");
+    // $("#game-start-audio")[0].play();
     if (this.game.gameOver && this.game.paused) {
       $("#game-over").hide();
       this.game.board.resetBoard();
@@ -86,19 +85,23 @@
         // } else if (oldsegments.length > 1 && ateApple && i == oldsegments.length - 1) {
         //   $("#" + removex).children("." + removey).removeClass("charmander");
         } else if (i == oldsegments.length - 1 && !ateApple) {
-          $("#" + removex).children("." + removey).removeClass("charmander N S E W");
-          // if (this.game.level < 6) {
-          //   $("#" + removex).children("." + removey).removeClass("charmander N S E W");
-          // } else if (this.game.level >= 3) {
-          //   $("#" + removex).children("." + removey).removeClass("charmeleon N S E W");
-          // }
+          // $("#" + removex).children("." + removey).removeClass("charmander N S E W");
+          if (this.game.level < 3) {
+            debugger
+            $("#" + removex).children("." + removey).removeClass("charmander N S E W");
+          } else if (this.game.level === 3 && ateApple) {
+            $("#" + removex).children("." + removey).removeClass("charmander N S E W");
+          } else if (this.game.level >= 3) {
+            debugger
+            $("#" + removex).children("." + removey).removeClass("charmeleon N S E W");
+          }
         } else {
-          $("#" + removex).children("." + removey).removeClass("charmander");
-          // if (this.game.level < 3) {
-          //   $("#" + removex).children("." + removey).removeClass("charmander");
-          // } else if (this.game.level >= 3) {
-          //   $("#" + removex).children("." + removey).removeClass("charmeleon");
-          // }
+          // $("#" + removex).children("." + removey).removeClass("charmander");
+          if (this.game.level <= 3) {
+            $("#" + removex).children("." + removey).removeClass("charmander");
+          } else if (this.game.level >= 3) {
+            $("#" + removex).children("." + removey).removeClass("charmeleon");
+          }
         }
       }
     }
@@ -109,12 +112,14 @@
       if (i === 0) {
         $("#" + snakeX).children("." + snakeY).addClass("blue " + this.game.board.snake.dir);
       } else {
-        $("#" + snakeX).children("." + snakeY).addClass("charmander");
-        // if (this.game.level < 3) {
-        //   $("#" + snakeX).children("." + snakeY).addClass("charmander");
-        // } else if (this.game.level >= 3) {
-        //   $("#" + snakeX).children("." + snakeY).addClass("charmeleon");
-        // }
+        // $("#" + snakeX).children("." + snakeY).addClass("charmander");
+        if (this.game.level < 3) {
+          debugger
+          $("#" + snakeX).children("." + snakeY).addClass("charmander");
+        } else if (this.game.level >= 3) {
+          debugger
+          $("#" + snakeX).children("." + snakeY).addClass("charmeleon");
+        }
 
       }
     }

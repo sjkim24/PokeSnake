@@ -1,17 +1,20 @@
 @keyframes trainer {
-   from { background-position-x: 0px  }
-   to { background-position-x: -150px }
+   from { background-position-x: 0px;  }
+   to { background-position-x: -150px; }
 }
 
 @keyframes charmander {
-   from { background-position-x: 0px  }
-   to { background-position-x: -100px }
+   from { background-position-x: 0px;  }
+   to { background-position-x: -100px; }
 }
 
 @keyframes blink {
-  to {
-    visibility: hidden;
-  }
+  to { visibility: hidden; }
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 html, head, body, div, h1, h2, figure, li, ul {
@@ -66,12 +69,6 @@ header {
   background-color: black;
 }
 
-/*.blues_adventure {
-  position: fixed;
-  /*background: url('../assets/blues_adventure.png');*/
-
-/*}*/
-
 .info {
   position: fixed;
   width: 300px;
@@ -122,7 +119,7 @@ header {
 }
 
 .charmeleon {
-  background: url("../assets/charmeleon.png"), url("../assets/grass.png");
+  background: url("../assets/charmeleon2.png"), url("../assets/grass.png");
 }
 
 .charmander, .charmeleon {
@@ -149,6 +146,10 @@ header {
 
 .N {
   background-position-y: -150px;
+}
+
+#start-screen {
+  animation: fadein 10s;
 }
 
 #game-over, #starting {

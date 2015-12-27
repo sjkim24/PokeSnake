@@ -9,7 +9,6 @@
       <div id="level"></div>
       <div id="best-level"></div>
     </header>
-    <!-- <img class="blues_adventure" src="assets/blues_adventure.png" /> -->
     <div class="info" id="start-screen">
       <h1>Blue's Adventure</h1>
       <h2>Press Arrow Keys to Move</h2>
@@ -42,8 +41,10 @@
     <script>
       $(function() {
         // preload image.
-        var Image1 = new Image();
-        Image1.src = "assets/charmander.png";
+        var charmander = new Image();
+        var charmeleon = new Image();
+        charmander.src = "assets/charmander.png";
+        charmeleon.src = "assets/charmeleon.png";
         var game = new SnakeGame.Game($(".snake-game"));
         var view = new SnakeGame.View($(".snake-game"), game);
         view.startScreen();
