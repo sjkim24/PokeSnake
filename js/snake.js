@@ -8,7 +8,6 @@
     this.dir = "S";
     this.startX = Math.floor($(window).height() / 100) - 2;
     this.startY = Math.floor($(window).width() / 100);
-    debugger
     this.segments = [ new SnakeGame.Coord([this.startX, this.startY], "snake-head") ];
     this.head = this.segments[0];
     this.turns = [];

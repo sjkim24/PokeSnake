@@ -42,7 +42,7 @@
 
   Game.prototype.outOfBoundCheck = function (segments) {
     var head = segments[0];
-    if ((head.x < 0 || head.x > this.board.height - 1) || (head.y < 0 || head.y > this.board.width - 1)) {
+    if ((head.x < 0 || head.x > this.board.maxX - 1) || (head.y < 0 || head.y > this.board.maxY - 1)) {
       return true;
     }
   };

@@ -21,12 +21,12 @@ html, head, body, div, h1, h2, figure, li, ul {
   background: transparent;
   font: inherit;
   text-style: inherit;
+  color: #FFFFFF;
 }
 
 div {
   font-size: 11px;
   font-family: 'Press Start 2P';
-  color: #F25F5C;
 }
 
 #start-screen, #game-over {
@@ -61,10 +61,9 @@ div {
   float: right;
 }*/
 
-figure{
-  height: 100%;
+figure {
+  height: 100% - 50px;
   width: 100%;
-
 }
 
 ul, li {
@@ -73,6 +72,12 @@ ul, li {
 
 ul {
   position: relative;
+}
+
+header {
+  display: block;
+  height: 50px;
+  background-color: black;
 }
 
 .square {
