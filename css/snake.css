@@ -41,15 +41,19 @@ h2 {
   padding: 0 0 5px 10px;
 }
 
-
-#level {
-  float: left;
-  padding: 10px 0 0 10px;
-}
-
 #best-level {
   float: right;
   padding: 10px 10px 0 0;
+}
+
+#level {
+  float: right;
+  padding: 10px 30px 0 0;
+}
+
+#title {
+  float: left;
+  padding: 10px 0 0 10px;
 }
 
 figure, #start-screen {
