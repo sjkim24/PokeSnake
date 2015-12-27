@@ -70,7 +70,7 @@
 
   View.prototype.render = function (oldsegments, newsegments, ateApple) {
     $("#level").html("Lv: " + this.game.level);
-    $("#best-level").html("Best Lv : " + this.game.bestLevel);
+    $("#best-level").html("Best Lv: " + this.game.bestLevel);
     for (var i = 0; i < oldsegments.length; i++) {
       var removex = oldsegments[i].x;
       var removey = oldsegments[i].y;
