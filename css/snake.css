@@ -154,8 +154,8 @@ header {
   background-position-y: -150px;
 }
 
-#start-screen {
-  animation: fadein 10s;
+figure, #start-screen {
+  animation: fadein 12s;
 }
 
 #game-over, #starting {
