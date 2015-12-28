@@ -48,8 +48,7 @@
       window.setTimeout(function () {
         $("#starting").hide();
         that.interval = window.setInterval(that.step.bind(that), 200);
-      }, 3250)
-
+      }, 3000)
     }
   };
 
