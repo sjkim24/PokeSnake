@@ -31,16 +31,17 @@
 
   View.prototype.start = function () {
     var that = this;
-    this.game.level = 0;
     $("#start-screen-audio")[0].pause();
     // $("#game-start-audio").attr("loop", "loop");
     // $("#game-start-audio")[0].play();
     if (this.game.gameOver && this.game.paused) {
+      this.game.level = 0;
       $("#game-over").hide();
       this.game.board.resetBoard();
       this.game.paused = false;
       this.interval = window.setInterval(this.step.bind(this), 200);
     } else if (!this.game.gameOver && this.game.paused) {
+      this.game.level = 0;
       $("#start-screen").hide();
       $("#starting").show();
       this.game.paused = false;
