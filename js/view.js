@@ -32,14 +32,12 @@
   View.prototype.start = function () {
     var that = this;
     $("#start-screen-audio")[0].pause();
-    // $("#game-start-audio").attr("loop", "loop");
-    // $("#game-start-audio")[0].play();
     if (this.game.gameOver && this.game.paused) {
       this.game.level = 0;
       $("#game-over").hide();
       this.game.board.resetBoard();
       this.game.paused = false;
-      this.interval = window.setInterval(this.step.bind(this), 200);
+      this.interval = window.setInterval(this.step.bind(this), 150);
     } else if (!this.game.gameOver && this.game.paused) {
       this.game.level = 0;
       $("#start-screen").hide();
@@ -47,7 +45,7 @@
       this.game.paused = false;
       window.setTimeout(function () {
         $("#starting").hide();
-        that.interval = window.setInterval(that.step.bind(that), 200);
+        that.interval = window.setInterval(that.step.bind(that), 150);
       }, 3000)
     }
   };
