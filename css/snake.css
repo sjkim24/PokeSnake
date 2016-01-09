@@ -83,6 +83,10 @@ figure, #start-screen {
   display: none;
 }
 
+#choose {
+  animation: fadein 3s;
+}
+
 #starting h1 {
   padding: 40px 0 0 0;
   text-align: center;
@@ -191,13 +195,14 @@ header {
 }
 
 .blue {
-  animation: trainer .2s steps(3) infinite;
+  animation: trainer .225s steps(3) infinite;
   background: url("../assets/blue.png"), url("../assets/grass.png");
   background-color: transparent;
 }
 
-.charmander, .charmeleon, .charizard, .bulbasaur, .ivysaur, .venusaur {
-  animation: pokemon .2s steps(2) infinite;
+.charmander, .charmeleon, .charizard, .bulbasaur, .ivysaur, .venusaur,
+.squirtle, .wartortle, .blastoise {
+  animation: pokemon .25s steps(2) infinite;
   background-color: transparent;
 }
 
@@ -223,6 +228,18 @@ header {
 
 .venusaur {
   background: url("../assets/venusaur.png"), url("../assets/grass.png");
+}
+
+.squirtle {
+  background: url("../assets/squirtle.png"), url("../assets/grass.png");
+}
+
+.wartortle {
+  background: url("../assets/wartortle.png"), url("../assets/grass.png");
+}
+
+.blastoise {
+  background: url("../assets/blastoise.png"), url("../assets/grass.png");
 }
 
 .apple {
