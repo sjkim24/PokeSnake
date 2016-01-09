@@ -47,4 +47,8 @@
     }
   };
 
+  Game.prototype.releaseDaKraken = function () {
+    
+  };
+
 })();

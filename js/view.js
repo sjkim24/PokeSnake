@@ -47,10 +47,13 @@
     $("#start-screen-audio")[0].pause();
     if (!this.game.gameOver && this.game.paused) {
       if (pokemon === "bulbasaur") {
+        $("#bulbasaur-sound")[0].play();
         this.pokemon = ["bulbasaur", "ivysaur", "venusaur"];
       } else if (pokemon === "squirtle") {
+        $("#squirtle-sound")[0].play();
         this.pokemon = ["squirtle", "wartortle", "blastoise"];
       } else if (pokemon === "charmander") {
+        $("#charmander-sound")[0].play();
         this.pokemon = ["charmander", "charmeleon", "charizard"];
       }
       this.game.level = 0;
@@ -71,7 +74,7 @@
       this.game.paused = false;
       this.interval = window.setInterval(this.step.bind(this), 150);
     }
-  }
+  };
 
   View.prototype.step = function() {
     var ateApple = false;
