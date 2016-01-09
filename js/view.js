@@ -13,11 +13,11 @@
 
   View.prototype.bindKeyHandlers = function () {
     that = this;
-    key('left', function() { that.game.board.snake.storeTurns("W") });
-    key('down', function() { that.game.board.snake.storeTurns("S") });
-    key('right', function() { that.game.board.snake.storeTurns("E") });
-    key('up', function() { that.game.board.snake.storeTurns("N") });
-    key('space', function() { that.start() });
+    key("left", function () { that.game.board.snake.storeTurns("W") });
+    key("down", function () { that.game.board.snake.storeTurns("S") });
+    key("right", function () { that.game.board.snake.storeTurns("E") });
+    key("up", function () { that.game.board.snake.storeTurns("N") });
+    key("space", function () { that.start() });
   };
 
   View.prototype.startScreen = function () {
@@ -31,6 +31,9 @@
 
   View.prototype.start = function () {
     var that = this;
+
+
+
     $("#start-screen-audio")[0].pause();
     if (this.game.gameOver && this.game.paused) {
       this.game.level = 0;
@@ -43,7 +46,7 @@
       $("#start-screen").hide();
       $("#choose").show();
       // $("#starting").show();
-      this.game.paused = false;
+      // this.game.paused = false;
       // window.setTimeout(function () {
       //   $("#starting").hide();
       //   that.interval = window.setInterval(that.step.bind(that), 150);

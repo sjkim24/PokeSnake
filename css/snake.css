@@ -146,6 +146,7 @@ header {
 
 #bulbasaur {
   background: url("../assets/bulbasaurc.png");
+  margin: 5px 0 0 0;
 }
 
 #squirtle {
@@ -159,6 +160,10 @@ header {
 
 #charmander h4 {
   margin: 7px 0 0 0;
+}
+
+#bulbasaur h4 {
+  margin: 6px 0 0 0;
 }
 
 .square {
