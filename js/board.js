@@ -9,6 +9,7 @@
     this.maxY = Math.floor($(window).width() / 50);
     this.setBoard($el);
     this.snake = snake;
+    this.pokemon;
     this.apple;
     this.generateApple();
   };
@@ -35,11 +36,12 @@
     }
   };
 
-  Board.prototype.resetBoard = function () {
-    $(".blue").removeClass("blue charmander N E S W");
-    $(".charmander").removeClass("charmander N E S W");
-    $(".charmeleon").removeClass("charmeleon N E S W");
-    $(".charizard").removeClass("charizard N E S W");
+  Board.prototype.resetBoard = function (pokemon) {
+    this.pokemon = pokemon;
+    $(".blue").removeClass("blue N E S W");
+    $("." + this.pokemon[0]).removeClass(this.pokemon[0] + " N E S W");
+    $("." + this.pokemon[1]).removeClass(this.pokemon[1] + " N E S W");
+    $("." + this.pokemon[2]).removeClass(this.pokemon[2] + " N E S W");
     $(".apple").removeClass("apple");
     this.snake = new SnakeGame.Snake ();
     this.generateApple();

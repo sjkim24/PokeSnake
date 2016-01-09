@@ -3,7 +3,7 @@
    to { background-position-x: -150px; }
 }
 
-@keyframes charmander {
+@keyframes pokemon {
    from { background-position-x: 0px;  }
    to { background-position-x: -100px; }
 }
@@ -196,6 +196,11 @@ header {
   background-color: transparent;
 }
 
+.charmander, .charmeleon, .charizard, .bulbasaur, .ivysaur, .venusaur {
+  animation: pokemon .2s steps(2) infinite;
+  background-color: transparent;
+}
+
 .charmander {
   background: url("../assets/charmander.png"), url("../assets/grass.png");
 }
@@ -208,9 +213,16 @@ header {
   background: url("../assets/charizard.png"), url("../assets/grass.png");
 }
 
-.charmander, .charmeleon, .charizard {
-  animation: charmander .2s steps(2) infinite;
-  background-color: transparent;
+.bulbasaur {
+  background: url("../assets/bulbasaur.png"), url("../assets/grass.png");
+}
+
+.ivysaur {
+  background: url("../assets/ivysaur.png"), url("../assets/grass.png");
+}
+
+.venusaur {
+  background: url("../assets/venusaur.png"), url("../assets/grass.png");
 }
 
 .apple {

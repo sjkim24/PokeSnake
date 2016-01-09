@@ -20,7 +20,7 @@
     key("up", function () { that.game.board.snake.storeTurns("N") });
     key("space", function () { that.chooseScreen() });
     key("r", function () { that.restart() });
-    key("b", function () { that.start("bulbsaur") });
+    key("b", function () { that.start("bulbasaur") });
     key("s", function () { that.start("squirtle") });
     key("c", function () { that.start("charmander") });
   };
@@ -35,8 +35,10 @@
   };
 
   View.prototype.chooseScreen = function () {
-    $("#start-screen").hide();
-    $("#choose").show();
+    if (!this.game.gameOver && this.game.paused) {
+      $("#start-screen").hide();
+      $("#choose").show();
+    }
   }
 
   View.prototype.start = function (pokemon) {
@@ -65,7 +67,7 @@
     if (this.game.gameOver && this.game.paused) {
       this.game.level = 0;
       $("#game-over").hide();
-      this.game.board.resetBoard();
+      this.game.board.resetBoard(this.pokemon);
       this.game.paused = false;
       this.interval = window.setInterval(this.step.bind(this), 150);
     }
