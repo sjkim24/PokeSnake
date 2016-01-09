@@ -41,12 +41,13 @@
     } else if (!this.game.gameOver && this.game.paused) {
       this.game.level = 0;
       $("#start-screen").hide();
-      $("#starting").show();
+      $("#choose").show();
+      // $("#starting").show();
       this.game.paused = false;
-      window.setTimeout(function () {
-        $("#starting").hide();
-        that.interval = window.setInterval(that.step.bind(that), 150);
-      }, 3000)
+      // window.setTimeout(function () {
+      //   $("#starting").hide();
+      //   that.interval = window.setInterval(that.step.bind(that), 150);
+      // }, 3000)
     }
   };
 

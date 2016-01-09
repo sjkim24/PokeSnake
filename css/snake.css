@@ -8,28 +8,36 @@
    to { background-position-x: -100px; }
 }
 
-@keyframes blink {
-  to { visibility: hidden; }
-}
+@keyframes blink { to { visibility: hidden; } }
 
-@keyframes fadein {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
 
 html, head, body, div, h1, h2, figure, li, ul {
-  margin: 0;
-  border: 0;
-  padding: 0;
   background: transparent;
-  font: inherit;
-  text-style: inherit;
+  border: 0;
   color: #FFFFFF;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  text-style: inherit;
+}
+
+ul, li {
+  list-style: none;
+}
+
+.clearfix:after {
+  clear: both;
+  content: "";
+	display: block;
+	font-size: 0;
+	height: 0;
+  visibility: hidden;
 }
 
 div {
-  font-size: 11px;
   font-family: 'Press Start 2P';
+  font-size: 11px;
 }
 
 h1 {
@@ -39,6 +47,17 @@ h1 {
 
 h2 {
   padding: 0 0 5px 10px;
+}
+
+h3 {
+  font-size: 10px;
+  padding: 10px 0 0 0;
+  text-align: center;
+}
+
+h4 {
+  font-size: 8px;
+  text-align: center;
 }
 
 #best-level {
@@ -60,7 +79,7 @@ figure, #start-screen {
   animation: fadein 10s;
 }
 
-#game-over, #starting {
+#choose, #starting, #game-over {
   display: none;
 }
 
@@ -74,53 +93,92 @@ figure {
   width: 100%;
 }
 
-ul, li {
-  list-style: none;
-}
-
 ul {
-  position: relative;
+position: relative;
 }
 
 header {
+  background-color: black;
   display: block;
   height: 30px;
-  background-color: black;
 }
 
 .info {
-  position: fixed;
-  width: 300px;
-  height: 100px;
-  top: 50%;
-  left: 50%;
-  margin-top: -50px;
-  margin-left: -150px;
-  color: #FFFFFF;
   background-color: #004A80;
-  z-index: 1;
   border: 10px solid #C9A93E;
   border-radius: 10px;
+  color: #FFFFFF;
+  height: 100px;
+  left: 50%;
+  margin-left: -150px;
+  margin-top: -50px;
+  position: fixed;
+  top: 50%;
+  width: 300px;
+  z-index: 1;
+}
+
+#choose {
+  background-color: #004A80;
+  border: 10px solid #C9A93E;
+  border-radius: 10px;
+  color: #FFFFFF;
+  height: 140px;
+  left: 50%;
+  margin-left: -175px;
+  margin-top: -65px;
+  position: fixed;
+  top: 50%;
+  width: 350px;
+  z-index: 1;
+}
+
+#pokemons {
+  margin: 10px 0 0 25px;
+}
+
+.starter {
+  float: left;
+  height: 100px;
+  margin: auto;
+  width: 100px;
+}
+
+#bulbasaur {
+  background: url("../assets/bulbasaurc.png");
+}
+
+#squirtle {
+  background: url("../assets/squirtlec.png");
+}
+
+#charmander {
+  background: url("../assets/charmanderc.png");
+  margin: 4px 0 0 0;
+}
+
+#charmander h4 {
+  margin: 7px 0 0 0;
 }
 
 .square {
+  background: url("../assets/grass.png");
   float: left;
   height: 50px;
   width: 50px;
-  background: url("../assets/grass.png");
 }
 
 .side-tree {
+  background: url("../assets/tree.png");
   float: none;
   height: 50px;
   overflow: hidden;
-  background: url("../assets/tree.png");
 }
 
 .bottom-tree {
-  width: 100%;
-  overflow: hidden;
   background: url("../assets/tree.png");
+  overflow: hidden;
+  width: 100%;
 }
 
 .blink {
@@ -128,9 +186,9 @@ header {
 }
 
 .blue {
+  animation: trainer .2s steps(3) infinite;
   background: url("../assets/blue.png"), url("../assets/grass.png");
   background-color: transparent;
-  animation: trainer .2s steps(3) infinite;
 }
 
 .charmander {
@@ -146,8 +204,8 @@ header {
 }
 
 .charmander, .charmeleon, .charizard {
-  background-color: transparent;
   animation: charmander .2s steps(2) infinite;
+  background-color: transparent;
 }
 
 .apple {
