@@ -9,6 +9,7 @@
     this.game = game;
     this.interval;
     this.audio;
+    this.pokemon;
   };
 
   View.prototype.bindKeyHandlers = function () {
@@ -17,7 +18,9 @@
     key("down", function () { that.game.board.snake.storeTurns("S") });
     key("right", function () { that.game.board.snake.storeTurns("E") });
     key("up", function () { that.game.board.snake.storeTurns("N") });
-    key("space", function () { that.start() });
+    // key("space", function () { that.start() });
+    key("space", function () { that.chooseScreen() });
+    key("c", function () { that.start("charmander") });
   };
 
   View.prototype.startScreen = function () {
@@ -29,11 +32,21 @@
     window.clearInterval(this.interval);
   };
 
-  View.prototype.start = function () {
+  View.prototype.chooseScreen = function () {
+    $("#start-screen").hide();
+    $("#choose").show();
+  }
+
+  View.prototype.start = function (pokemon) {
+    if (pokemon === "bulbasaur") {
+      this.pokemon = ["bulbasaur", "ivysaur", "venusaur"];
+    } else if (pokemon === "squirtle") {
+      this.pokemon = ["squirtle", "wartortle", "blastoise"];
+    } else if (pokemon === "charmander") {
+      this.pokemon = ["charmander", "charmeleon", "charizard"];
+    }
     var that = this;
-
-
-
+    $("#choose").hide();
     $("#start-screen-audio")[0].pause();
     if (this.game.gameOver && this.game.paused) {
       this.game.level = 0;
@@ -43,14 +56,12 @@
       this.interval = window.setInterval(this.step.bind(this), 150);
     } else if (!this.game.gameOver && this.game.paused) {
       this.game.level = 0;
-      $("#start-screen").hide();
-      $("#choose").show();
-      // $("#starting").show();
-      // this.game.paused = false;
-      // window.setTimeout(function () {
-      //   $("#starting").hide();
-      //   that.interval = window.setInterval(that.step.bind(that), 150);
-      // }, 3000)
+      $("#starting").show();
+      this.game.paused = false;
+      window.setTimeout(function () {
+        $("#starting").hide();
+        that.interval = window.setInterval(that.step.bind(that), 150);
+      }, 3000)
     }
   };
 
@@ -85,23 +96,23 @@
           $("#" + removex).children("." + removey).removeClass("blue");
         } else if (i == oldsegments.length - 1 && !ateApple) {
           if (this.game.level < 3) {
-            $("#" + removex).children("." + removey).removeClass("charmander N S E W");
+            $("#" + removex).children("." + removey).removeClass(this.pokemon[0] + " N S E W");
           } else if (this.game.level === 3 && ateApple) {
-            $("#" + removex).children("." + removey).removeClass("charmander N S E W");
+            $("#" + removex).children("." + removey).removeClass(this.pokemon[0] + " N S E W");
           } else if (this.game.level >= 3 && this.game.level < 9) {
-            $("#" + removex).children("." + removey).removeClass("charmeleon N S E W");
+            $("#" + removex).children("." + removey).removeClass(this.pokemon[1] + " N S E W");
           } else if (this.game.level === 9 && ateApple) {
-            $("#" + removex).children("." + removey).removeClass("charmeleon N S E W");
+            $("#" + removex).children("." + removey).removeClass(this.pokemon[1] + " N S E W");
           } else {
-            $("#" + removex).children("." + removey).removeClass("charizard N S E W");
+            $("#" + removex).children("." + removey).removeClass(this.pokemon[2] + " N S E W");
           }
         } else {
           if (this.game.level <= 3) {
-            $("#" + removex).children("." + removey).removeClass("charmander");
+            $("#" + removex).children("." + removey).removeClass(this.pokemon[0]);
           } else if (this.game.level >= 3 && this.game.level <= 9) {
-            $("#" + removex).children("." + removey).removeClass("charmeleon");
+            $("#" + removex).children("." + removey).removeClass(this.pokemon[1]);
           } else {
-            $("#" + removex).children("." + removey).removeClass("charizard");
+            $("#" + removex).children("." + removey).removeClass(this.pokemon[2]);
           }
         }
       }
@@ -114,11 +125,11 @@
         $("#" + snakeX).children("." + snakeY).addClass("blue " + this.game.board.snake.dir);
       } else {
         if (this.game.level < 3) {
-          $("#" + snakeX).children("." + snakeY).addClass("charmander");
+          $("#" + snakeX).children("." + snakeY).addClass(this.pokemon[0]);
         } else if (this.game.level >= 3 && this.game.level < 9) {
-          $("#" + snakeX).children("." + snakeY).addClass("charmeleon");
+          $("#" + snakeX).children("." + snakeY).addClass(this.pokemon[1]);
         } else {
-          $("#" + snakeX).children("." + snakeY).addClass("charizard");
+          $("#" + snakeX).children("." + snakeY).addClass(this.pokemon[2]);
         }
       }
     }
