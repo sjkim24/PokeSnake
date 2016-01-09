@@ -18,8 +18,10 @@
     key("down", function () { that.game.board.snake.storeTurns("S") });
     key("right", function () { that.game.board.snake.storeTurns("E") });
     key("up", function () { that.game.board.snake.storeTurns("N") });
-    // key("space", function () { that.start() });
     key("space", function () { that.chooseScreen() });
+    key("r", function () { that.restart() });
+    key("b", function () { that.start("bulbsaur") });
+    key("s", function () { that.start("squirtle") });
     key("c", function () { that.start("charmander") });
   };
 
@@ -38,23 +40,17 @@
   }
 
   View.prototype.start = function (pokemon) {
-    if (pokemon === "bulbasaur") {
-      this.pokemon = ["bulbasaur", "ivysaur", "venusaur"];
-    } else if (pokemon === "squirtle") {
-      this.pokemon = ["squirtle", "wartortle", "blastoise"];
-    } else if (pokemon === "charmander") {
-      this.pokemon = ["charmander", "charmeleon", "charizard"];
-    }
     var that = this;
     $("#choose").hide();
     $("#start-screen-audio")[0].pause();
-    if (this.game.gameOver && this.game.paused) {
-      this.game.level = 0;
-      $("#game-over").hide();
-      this.game.board.resetBoard();
-      this.game.paused = false;
-      this.interval = window.setInterval(this.step.bind(this), 150);
-    } else if (!this.game.gameOver && this.game.paused) {
+    if (!this.game.gameOver && this.game.paused) {
+      if (pokemon === "bulbasaur") {
+        this.pokemon = ["bulbasaur", "ivysaur", "venusaur"];
+      } else if (pokemon === "squirtle") {
+        this.pokemon = ["squirtle", "wartortle", "blastoise"];
+      } else if (pokemon === "charmander") {
+        this.pokemon = ["charmander", "charmeleon", "charizard"];
+      }
       this.game.level = 0;
       $("#starting").show();
       this.game.paused = false;
@@ -64,6 +60,16 @@
       }, 3000)
     }
   };
+
+  View.prototype.restart = function () {
+    if (this.game.gameOver && this.game.paused) {
+      this.game.level = 0;
+      $("#game-over").hide();
+      this.game.board.resetBoard();
+      this.game.paused = false;
+      this.interval = window.setInterval(this.step.bind(this), 150);
+    }
+  }
 
   View.prototype.step = function() {
     var ateApple = false;
