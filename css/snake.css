@@ -31,12 +31,9 @@ ul, li {
 }
 
 .clearfix:after {
-  clear: both;
   content: "";
-	display: block;
-	font-size: 0;
-	height: 0;
-  visibility: hidden;
+  clear: both;
+  display: block;
 }
 
 div {
