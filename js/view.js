@@ -76,16 +76,6 @@
     }
   };
 
-  View.prototype.restart = function () {
-    if (this.game.gameOver && this.game.paused) {
-      this.game.level = 0;
-      $("#game-over").hide();
-      this.game.board.resetBoard(this.pokemon);
-      this.game.paused = false;
-      this.interval = window.setInterval(this.step.bind(this), 150);
-    }
-  };
-
   View.prototype.step = function() {
     var ateApple = false;
     this.game.board.snake.turn();
@@ -172,6 +162,16 @@
     this.game.paused = true;
     this.interval = window.clearInterval(this.interval);
     $("#game-over").show();
+  };
+
+  View.prototype.restart = function () {
+    if (this.game.gameOver && this.game.paused) {
+      this.game.level = 0;
+      $("#game-over").hide();
+      this.game.board.resetBoard(this.pokemon);
+      this.game.paused = false;
+      this.interval = window.setInterval(this.step.bind(this), 150);
+    }
   };
 
 })();
