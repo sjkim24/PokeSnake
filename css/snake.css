@@ -147,31 +147,25 @@ header {
 
 .starter {
   float: left;
-  height: 100px;
-  margin: auto;
-  width: 100px;
+  height: 75px;
+  margin: 20px 0 0 20.8px;
+  width: 75px;
+}
+
+h4 {
+  margin: -15px 0 0 0;
 }
 
 #bulbasaur {
-  background: url("../assets/bulbasaurc.png");
-  margin: 5px 0 0 0;
+  background-image: url("../assets/bulbasaurc1.png");
 }
 
 #squirtle {
-  background: url("../assets/squirtlec.png");
+  background-image: url("../assets/squirtlec1.png");
 }
 
 #charmander {
-  background: url("../assets/charmanderc.png");
-  margin: 4px 0 0 0;
-}
-
-#charmander h4 {
-  margin: 7px 0 0 0;
-}
-
-#bulbasaur h4 {
-  margin: 6px 0 0 0;
+  background-image: url("../assets/charmanderc1.png");
 }
 
 .square {
@@ -200,7 +194,7 @@ header {
 
 .blue {
   animation: trainer .225s steps(3) infinite;
-  background: url("../assets/blue.png"), url("../assets/grass.png");
+  background: url("../assets/sprite_sheets/blue.png"), url("../assets/grass.png");
   background-color: transparent;
 }
 
@@ -211,39 +205,39 @@ header {
 }
 
 .charmander {
-  background: url("../assets/charmander.png"), url("../assets/grass.png");
+  background: url("../assets/sprite_sheets/charmander.png"), url("../assets/grass.png");
 }
 
 .charmeleon {
-  background: url("../assets/charmeleon.png"), url("../assets/grass.png");
+  background: url("../assets/sprite_sheets/charmeleon.png"), url("../assets/grass.png");
 }
 
 .charizard {
-  background: url("../assets/charizard.png"), url("../assets/grass.png");
+  background: url("../assets/sprite_sheets/charizard.png"), url("../assets/grass.png");
 }
 
 .bulbasaur {
-  background: url("../assets/bulbasaur.png"), url("../assets/grass.png");
+  background: url("../assets/sprite_sheets/bulbasaur.png"), url("../assets/grass.png");
 }
 
 .ivysaur {
-  background: url("../assets/ivysaur.png"), url("../assets/grass.png");
+  background: url("../assets/sprite_sheets/ivysaur.png"), url("../assets/grass.png");
 }
 
 .venusaur {
-  background: url("../assets/venusaur.png"), url("../assets/grass.png");
+  background: url("../assets/sprite_sheets/venusaur.png"), url("../assets/grass.png");
 }
 
 .squirtle {
-  background: url("../assets/squirtle.png"), url("../assets/grass.png");
+  background: url("../assets/sprite_sheets/squirtle.png"), url("../assets/grass.png");
 }
 
 .wartortle {
-  background: url("../assets/wartortle.png"), url("../assets/grass.png");
+  background: url("../assets/sprite_sheets/wartortle.png"), url("../assets/grass.png");
 }
 
 .blastoise {
-  background: url("../assets/blastoise.png"), url("../assets/grass.png");
+  background: url("../assets/sprite_sheets/blastoise.png"), url("../assets/grass.png");
 }
 
 .apple {

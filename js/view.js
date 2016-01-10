@@ -20,9 +20,9 @@
     key("up", function () { that.game.board.snake.storeTurns("N") });
     key("space", function () { that.chooseScreen() });
     key("r", function () { that.restart() });
-    key("b", function () { that.start("bulbasaur") });
-    key("s", function () { that.start("squirtle") });
-    key("c", function () { that.start("charmander") });
+    key("b", function () { that.choosePokemon("bulbasaur") });
+    key("s", function () { that.choosePokemon("squirtle") });
+    key("c", function () { that.choosePokemon("charmander") });
   };
 
   View.prototype.startScreen = function () {
@@ -39,30 +39,40 @@
       $("#start-screen").hide();
       $("#choose").show();
     }
-  }
+  };
+
+  View.prototype.choosePokemon = function (pokemon) {
+    var that = this;
+    $("#" + pokemon).css("background-image", "url(./assets/" + pokemon + "c2.png)");
+
+    if (pokemon === "bulbasaur") {
+      $("#bulbasaur-sound")[0].play();
+      this.pokemon = ["bulbasaur", "ivysaur", "venusaur"];
+    } else if (pokemon === "squirtle") {
+      $("#squirtle-sound")[0].play();
+      this.pokemon = ["squirtle", "wartortle", "blastoise"];
+    } else if (pokemon === "charmander") {
+      $("#charmander-sound")[0].play();
+      this.pokemon = ["charmander", "charmeleon", "charizard"];
+    }
+
+    window.setTimeout(function () {
+      that.start(pokemon);
+    }, 2000);
+  };
 
   View.prototype.start = function (pokemon) {
     var that = this;
     $("#choose").hide();
     $("#start-screen-audio")[0].pause();
     if (!this.game.gameOver && this.game.paused) {
-      if (pokemon === "bulbasaur") {
-        $("#bulbasaur-sound")[0].play();
-        this.pokemon = ["bulbasaur", "ivysaur", "venusaur"];
-      } else if (pokemon === "squirtle") {
-        $("#squirtle-sound")[0].play();
-        this.pokemon = ["squirtle", "wartortle", "blastoise"];
-      } else if (pokemon === "charmander") {
-        $("#charmander-sound")[0].play();
-        this.pokemon = ["charmander", "charmeleon", "charizard"];
-      }
       this.game.level = 0;
       $("#starting").show();
       this.game.paused = false;
       window.setTimeout(function () {
         $("#starting").hide();
-        that.interval = window.setInterval(that.step.bind(that), 150);
-      }, 3000)
+        that.interval = window.setInterval(that.step.bind(that), 175);
+      }, 2500)
     }
   };
 

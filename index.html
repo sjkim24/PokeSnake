@@ -59,7 +59,7 @@
     <script src="js/snake.js"></script>
     <script src="js/view.js"></script>
     <script src="js/game.js"></script>
-    <figure class="snake-game"></figure>
+    <figure class="snake-game clearfix"></figure>
     <script>
       $(function () {
         var charmander = new Image();
@@ -71,15 +71,15 @@
         var squirtle = new Image();
         var wartortle = new Image();
         var blastoise = new Image();
-        charmander.src = "assets/charmander.png";
-        charmeleon.src = "assets/charmeleon.png";
-        charizard.src = "assets/charizard.png";
-        bulbasaur.src = "assets/bulbasaur.png";
-        ivysaur.src = "assets/ivysaur.png";
-        venusaur.src = "assets/venusaur.png";
-        squirtle.src = "assets/squirtle.png";
-        wartortle.src = "assets/wartortle.png";
-        blastoise.src = "assets/blastoise.png";
+        charmander.src = "assets/sprite_sheets/charmander.png";
+        charmeleon.src = "assets/sprite_sheets/charmeleon.png";
+        charizard.src = "assets/sprite_sheets/charizard.png";
+        bulbasaur.src = "assets/sprite_sheets/bulbasaur.png";
+        ivysaur.src = "assets/sprite_sheets/ivysaur.png";
+        venusaur.src = "assets/sprite_sheets/venusaur.png";
+        squirtle.src = "assets/sprite_sheets/squirtle.png";
+        wartortle.src = "assets/sprite_sheets/wartortle.png";
+        blastoise.src = "assets/sprite_sheets/blastoise.png";
         var game = new SnakeGame.Game($(".snake-game"));
         var view = new SnakeGame.View($(".snake-game"), game);
         view.startScreen();
