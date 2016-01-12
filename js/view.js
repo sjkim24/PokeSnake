@@ -57,11 +57,11 @@
     }
 
     window.setTimeout(function () {
-      that.start(pokemon);
+      that.start();
     }, 2000);
   };
 
-  View.prototype.start = function (pokemon) {
+  View.prototype.start = function () {
     var that = this;
     $("#choose").hide();
     $("#start-screen-audio")[0].pause();
