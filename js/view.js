@@ -86,7 +86,9 @@
       ateApple = true;
       this.game.board.snake.grow(oldsegments[oldsegments.length - 1]);
     } else if (this.game.selfEatCheck(newsegments) || this.game.outOfBoundCheck(newsegments)) {
-      this.gameOver();
+      this.game.end();
+      this.interval = window.clearInterval(this.interval);
+      $("#game-over").show();
     }
 
     this.render(oldsegments, this.game.board.snake.segments, ateApple);
@@ -156,20 +158,10 @@
     $("#" + appleX).children("." + appleY).addClass("apple");
   };
 
-  View.prototype.gameOver = function () {
-    $("#game-start-audio").animate({ volume: 0.0 }, 2000)
-    this.game.gameOver = true;
-    this.game.paused = true;
-    this.interval = window.clearInterval(this.interval);
-    $("#game-over").show();
-  };
-
   View.prototype.restart = function () {
     if (this.game.gameOver && this.game.paused) {
-      this.game.level = 0;
+      this.game.restart(this.pokemon);
       $("#game-over").hide();
-      this.game.board.resetBoard(this.pokemon);
-      this.game.paused = false;
       this.interval = window.setInterval(this.step.bind(this), 150);
     }
   };

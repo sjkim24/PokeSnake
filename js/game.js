@@ -47,8 +47,19 @@
     }
   };
 
+  Game.prototype.end = function () {
+    this.gameOver = true;
+    this.paused = true;
+  };
+
+  Game.prototype.restart = function (pokemon) {
+    this.level = 0;
+    this.board.resetBoard(pokemon);
+    this.paused = false;
+  };
+
   Game.prototype.releaseDaKraken = function () {
-    
+
   };
 
 })();
