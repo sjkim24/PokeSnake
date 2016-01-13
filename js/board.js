@@ -12,6 +12,7 @@
     this.pokemon;
     this.apple;
     this.generateApple();
+    this.pieces;
   };
 
   Board.prototype.setBoard = function ($el) {

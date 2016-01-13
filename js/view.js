@@ -82,6 +82,7 @@
     var oldsegments = _.clone(this.game.board.snake.segments);
     this.game.board.snake.move();
     var newsegments = _.clone(this.game.board.snake.segments);
+
     if (this.game.appleCheck(newsegments[0])) {
       ateApple = true;
       this.game.board.snake.grow(oldsegments[oldsegments.length - 1]);
@@ -91,15 +92,19 @@
       $("#game-over").show();
     }
 
+    this.game.board.pieces = this.game.board.snake.segments.concat(this.game.board.apple.coord);
+    console.log(this.game.board.pieces);
     this.render(oldsegments, this.game.board.snake.segments, ateApple);
   };
 
   View.prototype.render = function (oldsegments, newsegments, ateApple) {
     $("#level").html("Lv: " + this.game.level);
     $("#best-level").html("Best Lv: " + this.game.bestLevel);
+
     for (var i = 0; i < oldsegments.length; i++) {
       var removex = oldsegments[i].x;
       var removey = oldsegments[i].y;
+
       if (oldsegments.length === 1 && ateApple) {
         $("#" + removex).children("." + removey).removeClass("blue");
       } else if (oldsegments.length == 1) {
@@ -146,6 +151,7 @@
         }
       }
     }
+
     if ($(".apple").length === 0) {
       this.renderApple();
     }
