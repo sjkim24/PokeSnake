@@ -93,7 +93,7 @@
     }
 
     this.game.board.pieces = this.game.board.snake.segments.concat(this.game.board.apple.coord);
-    console.log(this.game.board.pieces);
+    
     this.render(oldsegments, this.game.board.snake.segments, ateApple);
   };
 
